@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biến, kiểu dữ liệu và toán tử</title>
+
+</head>
+<body>
+<h2>Bài 1:</h2>
+<h3>Tính điểm trung bình của 3 môn: Vật lý, hoá học, sinh học</h3>
+<table border="1" cellspacing="0" style="text-align: center">
+    <tr>
+        <th width="200px"><p>Môn</p></th>
+        <th width="200px"><p>Điểm</p></th>
+    </tr>
+    <tr>
+        <td><p>Vật lý</p></td>
+        <td al><input id="diemmonly" name="diemly" type="text" style="border: none; text-align: center"></td>
+    </tr>
+    <tr>
+        <td><p>Hoá học</p></td>
+        <td><input id="diemmonhoa" name="diemhoa" type="text" style="border: none; text-align: center"></td>
+    </tr>
+    <tr>
+        <td><p>Sinh học</p></td>
+        <td><input id="diemmonsinh" name="diemsinh" type="text" style="border: none; text-align: center"></td>
+    </tr>
+    <tr>
+        <th width="100px"><p>Điểm tổng 3 môn:</p></th>
+        <td id="tong"></td>
+    </tr>
+    <tr>
+        <th width="100px"><p>Điểm trung bình:</p></th>
+        <td id="dtb"></td>
+    </tr>
+</table>
+<script>
+        let l = document.getElementById("diemmonly").value;
+        let h = document.getElementById("diemmonhoa").value;
+        let s = document.getElementById("diemmonsinh").value;
+        if (l !== "") {
+            diemtong =parseInt(l) + parseInt(h) + parseInt(s);
+            trungbinhcong = diemtong/3;
+            document.getElementById("tong").innerHTML = (diemtong);
+            document.getElementById("dtb").innerHTML = (trungbinhcong);
+        }        else{
+            alert("Bạn cần nhập đủ điểm các môn");
+        };
+</script>
+</body>
+</html>

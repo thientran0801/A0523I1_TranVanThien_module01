@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<h1 align="center">Curency converter app:</h1>
+<table style="text-align: center" cellpadding="0" align="center">
+    <tr>
+        <th>Amount</th>
+        <td width="100px"></td>
+        <th>From Currency</th>
+        <td width="100px"></td>
+        <th>To Currency</th>
+        <td width="20px"></td>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input name="amount" type="text" id="amountid"></td>
+        <td width="100px"></td>
+        <td>
+            <select name="fromcurrency" id="fromid">
+                <option value="0.000042">VND</option>
+                <option value="1">USA</option>
+                <option value="1.1">EURO</option>
+                <option value="1.28">BẢNG ANH</option>
+                <option value="0.0071">YÊN NHẬT</option>
+            </select>
+        </td>
+        <td width="100px"></td>
+        <td>
+            <select name="" id="toid">
+                <option name="VND" value="0.000042">VND</option>
+                <option name="USD" value="1">USA</option>
+                <option name="EURO" value="1.1">EURO</option>
+                <option name="BẢNG" value="1.28">BẢNG ANH</option>
+                <option name="YÊN" value="0.0071">YÊN NHẬT</option>
+            </select>
+        </td>
+        <td width="20px"></td>
+        <td><button type="button" ONCLICK="convertfunction();">CONVERT</button></td>
+    </tr>
+    <tr>
+        <td style="color: blue; text-align: left" colspan="6"><span>Resuilt:  </span>     <span id="kqcd">0.0000</span>  <span id="donvi"></span></td>
+    </tr>
+</table>
+<script> function convertfunction() {
+    let amountNumber = document.getElementById("amountid").value;
+    let fromCurrency = document.getElementById("fromid").value;
+    let toCurrency = document.getElementById("toid").value;
+    let donVi;
+    if (toCurrency == 0.000042) {
+        donVi = "VND"
+    }
+    else {
+        if (toCurrency == 1.1) {
+            donVi = "EURO"
+        }
+        else {
+            if (toCurrency == 1.28) {
+                donVi = "BẢNG ANH"
+            }
+            else {
+                if (toCurrency == 1) {
+                    donVi = "USD"
+                }
+                else {
+                    donVi = "Yên"
+
+            }
+
+        }
+
+    }
+}
+    ketQua = amountNumber * fromCurrency / toCurrency;
+    document.getElementById("kqcd").innerHTML = (ketQua.toFixed(10));
+    document.getElementById("donvi").innerHTML = (donVi);
+}
+</script>
+</body>
+</html>

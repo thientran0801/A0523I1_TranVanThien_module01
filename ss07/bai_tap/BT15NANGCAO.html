@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CALCULATE MACHINES BY VTTR</title>
+</head>
+<body>
+<h1>Calculator</h1>
+<input name="numberone " type="number" id="number1">
+<input name="numbertwo " type="number" id="number2">
+<p></p>
+<button type="button" onclick="additionFunction();">Addition(+)</button>
+<button type="button" onclick="subtractionFunction();">Subtraction(-)</button>
+<button type="button" onclick="multiplicationFunction();">Multiplication(X)</button>
+<button type="button" onclick="divisionFunction();">Division(/)</button>
+<br>
+<p><span>Resuilt</span><span id="toantu"></span><span id="ketqua"></span></p>
+<script>
+    function additionFunction() {
+        let toanHang1 = document.getElementById("number1").value;
+        let toanHang2 = document.getElementById("number2").value;
+        ketQua = parseFloat(toanHang1) + parseFloat(toanHang2);
+        toanTu = " addition: ";
+        document.getElementById("toantu").innerHTML = (toanTu);
+        document.getElementById("ketqua").innerHTML = (ketQua);
+    }
+    function subtractionFunction() {
+        let toanHang1 = document.getElementById("number1").value;
+        let toanHang2 = document.getElementById("number2").value;
+        ketQua = parseFloat(toanHang1) - parseFloat(toanHang2);
+        toanTu = " subtraction: ";
+        document.getElementById("toantu").innerHTML = (toanTu);
+        document.getElementById("ketqua").innerHTML = (ketQua);
+    }
+    function multiplicationFunction() {
+        let toanHang1 = document.getElementById("number1").value;
+        let toanHang2 = document.getElementById("number2").value;
+        ketQua = parseFloat(toanHang1) * parseFloat(toanHang2);
+        toanTu = " multiplication: ";
+        document.getElementById("toantu").innerHTML = (toanTu);
+        document.getElementById("ketqua").innerHTML = (ketQua);
+    }
+    function divisionFunction() {
+        let toanHang1 = document.getElementById("number1").value;
+        let toanHang2 = document.getElementById("number2").value;
+        ketQua = parseFloat(toanHang1) / parseFloat(toanHang2);
+        toanTu = " division: ";
+        document.getElementById("toantu").innerHTML = (toanTu);
+        document.getElementById("ketqua").innerHTML = (ketQua);
+    }
+</script>
+</body>
+</html>

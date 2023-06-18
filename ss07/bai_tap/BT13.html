@@ -2,9 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Biến, kiểu dữ liệu và toán tử</title>
+
 </head>
 <body>
-$END$
+<h2>Bài 1:</h2>
+<h3>Tính điểm trung bình của 3 môn: Vật lý, hoá học, sinh học</h3>
+    <table border="1" cellspacing="0" style="text-align: center">
+        <tr>
+            <th width="200px"><p>Môn</p></th>
+            <th width="200px"><p>Điểm</p></th>
+        </tr>
+        <tr>
+            <td><p>Vật lý</p></td>
+            <td><input id="diemmonly" name="diemly" type="text" style="border: none; text-align: center"></td>
+        </tr>
+        <tr>
+            <td><p>Hoá học</p></td>
+            <td><input id="diemmonhoa" name="diemhoa" type="text" style="border: none; text-align: center"></td>
+        </tr>
+        <tr>
+            <td><p>Sinh học</p></td>
+            <td><input id="diemmonsinh" name="diemsinh" type="text" style="border: none; text-align: center"></td>
+        </tr>
+        <tr>
+            <th width="100px"><p>Điểm tổng 3 môn:</p></th>
+            <td id="tong"></td>
+        </tr>
+        <tr>
+            <th width="100px"><p>Điểm trung bình:</p></th>
+            <td id="dtb"></td>
+        </tr>
+    </table>
+<p>Hãy nhập đủ điểm các môn và nhấn SUBMIT bên dưới:    </p>
+<button onclick="tinhdiem();">SUBMIT</button>
+
+<script>
+    function tinhdiem() {
+        let l = document.getElementById("diemmonly").value;
+        let h = document.getElementById("diemmonhoa").value;
+        let s = document.getElementById("diemmonsinh").value;
+        diemtong =parseInt(l) + parseInt(h) + parseInt(s);
+        trungbinhcong = diemtong/3;
+        document.getElementById("tong").innerHTML = (diemtong);
+        document.getElementById("dtb").innerHTML = (trungbinhcong.toFixed(1));
+    }
+</script>
+<h2>Bài 2</h2>
+<h3>Viết chương trình nhập một giá trị là độ 0C (Celsius) và chuyển nó sang độ 0F (Fahrenheit).</h3>
+<table border="1" cellspacing="0" style="text-align: center">
+    <tr>
+        <th width="200px">Celsius</th>
+        <th width="200px">Fahrenheit</th>
+    </tr>
+    <tr>
+        <td ><input id="doC" name="celsius" type="text" style="border: none; text-align: center"></td>
+        <td id="doF"></td>
+    </tr>
+</table>
+<p>Hãy nhập vào ô trên nhấn CONVERT bên dưới:</p>
+<button onclick="chuyendoi();">CONVERT</button>
+<script>
+    function chuyendoi() {
+    let C = document.getElementById("doC").value;
+    F = 32 + 9/5*parseInt(C);
+    document.getElementById("doF").innerHTML = (F);
+}
+</script>
+<h2>Bài 3</h2>
+<h3>Viết chương trình tính diện tích hình tròn:</h3>
+<table border="1" cellspacing="0" style="text-align: center">
+    <tr>
+        <th width="200px">radian</th>
+        <th width="200px">Area</th>
+    </tr>
+    <tr>
+        <td ><input id="bankinh" name="bankinhduongtron" type="text" style="border: none; text-align: center"></td>
+        <td id="dientichhinhhtron"></td>
+    </tr>
+</table>
+<p>Hãy nhập bán kính và nhấn CAL bên dưới:</p>
+<button onclick="tinhdientich();">CAL</button>
+<script>
+    function tinhdientich() {
+        const PI = 3.14;
+        let r = document.getElementById("bankinh").value;
+        S = parseInt(r)*parseInt(r)*PI;
+        document.getElementById("dientichhinhhtron").innerHTML = (S);
+    }
+</script>
+<h2>Bài 4</h2>
+<h3>Viết chương trình tính chu vi hình tròn:</h3>
+<table border="1" cellspacing="0" style="text-align: center">
+    <tr>
+        <th width="200px">radian</th>
+        <th width="200px">Perimeter</th>
+    </tr>
+    <tr>
+        <td ><input id="bk" name="bkhinhtron" type="text" style="border: none; text-align: center"></td>
+        <td id="chuvihinhtron"></td>
+    </tr>
+</table>
+<p>Hãy nhập bán kính và nhấn CAL bên dưới:</p>
+<button onclick="tinhchuvi();">CAL</button>
+<script>
+    function tinhchuvi() {
+        const PI = 3.14;
+        let r = document.getElementById("bk").value;
+        P = parseInt(r)*2*PI;
+        document.getElementById("chuvihinhtron").innerHTML = (P);
+    }
+</script>
 </body>
 </html>
