@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số lớn nhất trong 3 số</title>
+</head>
+<body>
+<h2>Nhập và kiểm tra số lớn nhất:</h2>
+<br>
+<p>Number 1:</p>
+<input type="number" id="number1"  placeholder="Enter the number">
+<br>
+<p>Number 2:</p>
+<input type="number" id="number2"  placeholder="Enter the number">
+<br>
+<p>Number 3:</p>
+<input type="number" id="number3"  placeholder="Enter the number">
+<br>
+
+<br>
+<p><strong id="result"></strong></p>
+<script>
+    let input1 = document.getElementById("number1");
+    let input2 = document.getElementById("number2");
+    let input3 = document.getElementById("number3");
+    input1.addEventListener("input", checkinput);
+    input2.addEventListener("input", checkinput);
+    input3.addEventListener("input", checkinput);
+    let ketQua = document.getElementById("result");
+    function checkinput() {
+        let numberCheck1 = parseFloat(input1.value);
+        let numberCheck2 = parseFloat(input2.value);
+        let numberCheck3 = parseFloat(input3.value);
+        if (isNaN(numberCheck1) || isNaN(numberCheck2) || isNaN(numberCheck3)){
+            ketQua.textContent = "Bạn cần nhập đầy đủ các số";
+            return;
+        }
+        if (numberCheck1> numberCheck2 && numberCheck1>numberCheck3) {
+            ketQua.textContent = `${numberCheck1} là số lớn nhất trong 3 số đã nhập.`;
+        }else if (numberCheck2>numberCheck3) {
+            ketQua.textContent = `${numberCheck2} là số lớn nhất trong 3 số đã nhập.`;
+        }else ketQua.textContent = `${numberCheck3} là số lớn nhất trong 3 số đã nhập.`;
+        if (numberCheck1==numberCheck2 || numberCheck2==numberCheck3 || numberCheck1==numberCheck3) {
+            ketQua.textContent = "Bạn đã nhập số trùng nhau";
+        }
+    }
+</script>
+</body>
+</html>

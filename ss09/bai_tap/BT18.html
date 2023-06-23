@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        button {
+            color: blue;
+            height: 30px;
+            width: 30px;
+            border-radius: 0;
+            border-color: silver;
+        }
+        td {
+            height: 30px;
+            width: 40px;
+            text-align: center;
+        }
+        .bordertd1 {
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+<body>
+<h2 align="center">Máy tính đơn giản</h2>
+<br>
+<table align="center" style="border: 4px solid black;">
+    <tr>
+        <td>
+            <table align="center" style="color: blue" cellspacing="0" cellpadding="5px" >
+                <tr>
+                    <td style="text-align: right" colspan="4" height="30px" class="bordertd1"><span id="resuilt"></span></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="calBasic('1')"><strong>1</strong></button></td>
+                    <td><button type="button" onclick="calBasic('2')"><strong>2</strong></button></td>
+                    <td><button type="button" onclick="calBasic('3')"><strong>3</strong></button></td>
+                    <td><button type="button" onclick="calBasic('+')"><strong>+</strong></button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="calBasic('4')"><strong>4</strong></button></td>
+                    <td><button type="button" onclick="calBasic('5')"><strong>5</strong></button></td>
+                    <td><button type="button" onclick="calBasic('6')"><strong>6</strong></button></td>
+                    <td><button type="button" onclick="calBasic('-')"><strong>-</strong></button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="calBasic('7')"><strong>7</strong></button></td>
+                    <td><button type="button" onclick="calBasic('8')"><strong>8</strong></button></button></td>
+                    <td><button type="button" onclick="calBasic('9')"><strong>9</strong></button></button></td>
+                    <td><button type="button" onclick="calBasic('*')"><strong>x</strong></button></button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="calBasic('c')"><strong>C</strong></button></button></td>
+                    <td><button type="button" onclick="calBasic('0')"><strong>0</strong></button></button></td>
+                    <td><button type="button" onclick="calBasic('=')"><strong>=</strong></button></button></td>
+                    <td><button type="button" onclick="calBasic('/')"><strong>/</strong></button></button></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script>
+    function calBasic(x) {
+        let resuilt = document.getElementById("resuilt").innerText;
+        switch (x) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                resuilt = resuilt + x;
+                break;
+            case "=":
+                resuilt = eval(resuilt);
+                break;
+            case "c":
+                resuilt = "";
+                break;
+        }
+        document.getElementById("resuilt").innerText = resuilt;
+    }
+</script>
+</body>
+</html>

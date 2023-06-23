@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra a chia hết cho b</title>
+</head>
+<body>
+<h2>Kiểm tra a chia hết cho b:</h2>
+<p>Nhập a:</p>
+<input type="number" name="A" id="numbera">
+<p>Nhập b:</p>
+<input type="number" name="B" id="numberb">
+<br>
+<p><strong id="result"></strong></p>
+<script>
+    let numBera = document.getElementById("numbera");
+    let numBerb = document.getElementById("numberb");
+    numBera.addEventListener("input", checkinput);
+    numBerb.addEventListener("input", checkinput);
+    function checkinput() {
+        let a = parseFloat(numBera.value);
+        let b = parseFloat(numBerb.value);
+        if (isNaN(a) || isNaN(b)) {
+            document.getElementById("result").innerHTML = ("Bạn chưa nhập xong");
+            return;
+        }
+        else if (a%b == 0) {
+            document.getElementById("result").innerHTML = ("a chia hết cho b");
+        }else document.getElementById("result").innerHTML = ("a không chia hết cho b");
+
+    }
+</script>
+</body>
+</html>

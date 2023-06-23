@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tuổi và in ra kết quả</title>
+</head>
+<body>
+<h2>Kiểm tra điều kiện tuổi vào lớp 10:</h2>
+<br>
+<input type="number" id="age"  placeholder="Enter student's age">
+<br>
+<p><strong id="result"></strong></p>
+<script>
+    const AGE_INPUT = document.getElementById("age");
+    AGE_INPUT.addEventListener("input", checkageFunction);
+    let ketQua = document.getElementById("result");
+    function checkageFunction() {
+        let ageStudent = parseFloat(AGE_INPUT.value);
+        if (ageStudent>=15) {
+            ketQua.textContent = "Tuổi đủ điều kiện lên lớp 10";
+        } else if (ageStudent>=0 && ageStudent<15) {
+            ketQua.textContent = "Tuổi chưa đủ điều kiện lên lớp 10";
+        } else {
+            ketQua.textContent = ("Tuổi đã nhập không  hợp lệ");
+        }
+        }
+</script>
+</body>
+</html>

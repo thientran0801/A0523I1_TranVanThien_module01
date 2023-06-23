@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Biến, kiểu dữ liệu và toán tử</title>
-
 </head>
 <body>
-<h2>Bài 1:</h2>
-<h3>Tính điểm trung bình của 3 môn: Vật lý, hoá học, sinh học</h3>
-<table border="1" cellspacing="0" style="text-align: center">
+<h2>Bài 1: Điểm trung bình và tổng điểm của sinh viên</h2>
+<table>
     <tr>
-        <th width="200px"><p>Môn</p></th>
-        <th width="200px"><p>Điểm</p></th>
+        <td>Điểm môn Vật lý</td>
+        <td><input type=number name="vat_ly" id="vat_ly"/></td>
     </tr>
     <tr>
-        <td><p>Vật lý</p></td>
-        <td al><input id="diemmonly" name="diemly" type="text" style="border: none; text-align: center"></td>
+        <td>Điểm môn hóa học</td>
+        <td><input type=number name="hoa_hoc" id="hoa_hoc"/></td>
     </tr>
     <tr>
-        <td><p>Hoá học</p></td>
-        <td><input id="diemmonhoa" name="diemhoa" type="text" style="border: none; text-align: center"></td>
-    </tr>
-    <tr>
-        <td><p>Sinh học</p></td>
-        <td><input id="diemmonsinh" name="diemsinh" type="text" style="border: none; text-align: center"></td>
-    </tr>
-    <tr>
-        <th width="100px"><p>Điểm tổng 3 môn:</p></th>
-        <td id="tong"></td>
-    </tr>
-    <tr>
-        <th width="100px"><p>Điểm trung bình:</p></th>
-        <td id="dtb"></td>
+        <td>Điểm môn Sinh học</td>
+        <td><input type=number name="sinh_hoc" id="sinh_hoc"/></td>
     </tr>
 </table>
+<p>Điểm trung bình các môn: <span id="diem_TB"></span></p>
+<p>Điểm tổng các môn: <span id="diem_Tong"></span></p>
+<hr/>
 <script>
-        let l = document.getElementById("diemmonly").value;
-        let h = document.getElementById("diemmonhoa").value;
-        let s = document.getElementById("diemmonsinh").value;
-        if (l !== "") {
-            diemtong =parseInt(l) + parseInt(h) + parseInt(s);
-            trungbinhcong = diemtong/3;
-            document.getElementById("tong").innerHTML = (diemtong);
-            document.getElementById("dtb").innerHTML = (trungbinhcong);
-        }        else{
-            alert("Bạn cần nhập đủ điểm các môn");
-        };
+    let ly_Input = document.getElementById("vat_ly");
+    let hoa_Input = document.getElementById("hoa_hoc");
+    let sinh_Input = document.getElementById("sinh_hoc");
+    let diem_Ave = document.getElementById("diem_TB");
+    let diem_Sum = document.getElementById("diem_Tong")
+
+    ly_Input.addEventListener('input', calculate);
+    hoa_Input.addEventListener('input', calculate);
+    sinh_Input.addEventListener('input', calculate);
+
+    function calculate() {
+        diem_Ly = parseFloat(ly_Input.value);
+        diem_Hoa = parseFloat(hoa_Input.value);
+        diem_Sinh = parseFloat(sinh_Input.value);
+        if (isNaN(diem_Ly) || isNaN(diem_Hoa) || isNaN(diem_Sinh)) {
+            diem_Ave.textContent = "Bạn chưa nhập đủ điểm cho môn học.";
+            diem_Sum.textContent = "Bạn chưa nhập đủ điểm cho môn học.";
+            return;
+        }
+        let Sum = diem_Ly + diem_Hoa + diem_Sinh
+        let Ave = Sum/3;
+        diem_Ave.textContent = Ave.toFixed(2);
+        diem_Sum.textContent = Sum.toFixed(2);
+    }
 </script>
 </body>
 </html>

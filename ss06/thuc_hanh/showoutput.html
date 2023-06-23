@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show output</title>
+</head>
+<body>
+<button type="button" onclick="consolefunction();">console</button>
+<br>
+<button type="button" onclick="writefunction();">Write some thing</button>
+<div id="divid"></div>
+<button type="button" onclick="show_div();">show heading</button>
+<br>
+<button type="button" onclick="showoutput();">Click here </button>
+<script>
+    function showoutput() {
+        alert('Hello baby');
+    }
+    function show_div() {
+        document.getElementById("divid").innerHTML = ("hello Hồng Vân");
+
+    }
+    function writefunction() {
+        document.write('i had written');
+    }
+    function consolefunction() {
+        console.log("hello world");
+    }
+
+
+</script>
+</body>
+</html>

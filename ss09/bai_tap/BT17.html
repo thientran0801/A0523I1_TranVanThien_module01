@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinhs số ngày trong tháng</title>
+</head>
+<body>
+<h2>ỨNG DỤNG TÍNH SỐ NGÀY TRONG 1 THÁNG</h2>
+<h3 >Nhập tháng bạn muốn tính số ngày và nhấn "Tính số ngày":</h3>
+<input type="number" name="month" id="monthnuber">
+<button type="button" onclick="tinhsongayFunction();">Tính số ngày</button>
+<p><strong id="ketqua"></strong></p>
+<script>
+    function tinhsongayFunction () {
+        let thang = document.getElementById("monthnuber").value;
+        cal = parseInt(thang);
+        switch (cal) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                document.getElementById("ketqua").innerHTML = (`Tháng ${thang} có 31 ngày.`)
+                break;
+            case 2:
+                document.getElementById("ketqua").innerHTML = (`Tháng ${thang} có 28 hoặc 29 ngày.`)
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                document.getElementById("ketqua").innerHTML = (`Tháng ${thang} có 30 ngày.`);
+                break;
+            default:
+                document.getElementById("ketqua").innerHTML = ("Tháng bạn vừa nhập không hợp lệ");
+        }
+    }
+</script>
+</body>
+</html>

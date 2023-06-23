@@ -1,0 +1,48 @@
+<!DOCRYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp loại học lực của học sinh</title>
+</head>
+
+<body>
+<h1>Xếp hạng học lực của học sinh</h1>
+Điểm kiểm tra:<br>
+<input type="number" id="diemkiemtra"> <br>
+Điểm giữa kỳ:<br>
+<input type="number" id="diemgiuaky"> <br>
+Điểm cuối kỳ:<br>
+<input type="number" id="diemcuoiky"> <br>
+<p id="diemtong">
+</p>
+<p id="result">
+</p>
+<script>
+    const KT = document.getElementById("diemkiemtra");
+    const GK = document.getElementById("diemgiuaky");
+    const CK = document.getElementById("diemcuoiky");
+    KT.addEventListener('input', runFunction);
+    GK.addEventListener('input', runFunction);
+    CK.addEventListener('input', runFunction);
+    function runFunction() {
+        var ktValue = parseFloat(KT.value);
+        var gkValue = parseFloat(GK.value);
+        var ckValue = parseFloat(CK.value);
+        if(isNaN(ktValue) || isNaN(gkValue) || isNaN(ckValue)) {
+            document.getElementById("result").innerText = "Bạn chưa nhập đủ điểm";
+            return;
+        }
+        let diemTong = 0.2*(ktValue+gkValue) + 0.6*ckValue;
+        document.getElementById("diemtong").innerText= `Điểm tổng: ${diemTong}`;
+        if(diemTong>8) {
+            document.getElementById("result").innerText = "Xếp loại giỏi";
+        }else if(diemTong>6.5) {
+            document.getElementById("result").innerText = "Xếp loại khá";
+        }else if(diemTong>5) {
+            document.getElementById("result").innerText = "Xếp loại trung bình";
+        }else document.getElementById("result").innerText = "Xếp loại yếu";
+    }
+</script>
+</body>
+</html>
