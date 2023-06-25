@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tính hpa hồng theo doanh số bán hàng</title>
+    <title>Tính hoa hồng theo doanh số bán hàng</title>
 </head>
 <body>
 <h1>Tính doanh thu theo doanh số bán hàng:</h1>
 Doanh thu của tháng:<br>
-<input type="number" id="doanhthu"><div class=""></div>đ <br>
-<p id="result"></p>
+<input type="number" id="doanhthu" style="text-align: right" placeholder="Nhập doanh thu">.đ <br>
+<p id="result" style="color: red; font-size: 3mm"></p>
 <script>
-    let doanhThu = document.getElementById("doanhthu");
-    doanhThu.addEventListener("input", runFunction);
-    function runFunction() {
-        let DT = parseFloat(doanhThu.value);
-        if (isNaN(DT)) {
-            document.getElementById("result").innerHTML;
+    const dt_input = document.getElementById("doanhthu");
+    const ketQua = document.getElementById("result");
+    dt_input.addEventListener("input", inputFunction);
+    function inputFunction() {
+        let doanhThu = parseFloat(dt_input.value);
+        if(isNaN(doanhThu)) {
+            result.innerText = "Nhập doanh thu để biết hoa hồng bạn nhận được";
             return;
         }
-        let hshoahong;
-        if (DT<10000000)
+        let hshh;
+        let hoaHong;
+        if (doanhThu>100000000) {
+            hshh=0.2;
+        }else if (doanhThu>80000000) {
+            hshh=0.18;
+        }else if (doanhThu>60000000) {
+            hshh=0.16;
+        }else if (doanhThu>40000000) {
+            hshh=0.14;
+        } else if (doanhThu>20000000) {
+            hshh=0.12;
+        }else if (doanhThu<0) {
+            result.textContent = "Hoa hồng của bạn là 0đ";
+            return;
+        }else hshh=0.1;
+        hh = hshh*doanhThu;
+        HH = Math.round(hh);
+        hoaHong = HH.toLocaleString();
+        result.textContent = `Hoa hồng bạn nhận được là ${hoaHong}đ`
     }
 </script>
 </body>

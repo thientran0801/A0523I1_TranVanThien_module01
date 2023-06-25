@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<h1>Tính thuế thu nhập cá nhân</h1>
+<span>Nhập mức thu nhập tính thuế hiện tại:</span>
+<br>
+<input type="number" id="thunhapct"> <span style="color: blue">(Triệu/Tháng)</span>
+<p id="result" style="color: red"></p>
+<script>
+    let thueDong = document.getElementById("result");
+    let tn_input = document.getElementById("thunhapct");
+    tn_input.addEventListener("input", tinhthue);
+    let thueSuat;
+    function tinhthue() {
+        let thuNhap = parseFloat(tn_input.value);
+        if(isNaN(thuNhap)){
+            thueDong.textContent ="Nhập thu nhập chịu thuế để biết mức thuế phải đóng";
+            return;
+        }
+        if(thuNhap>80) {
+            thueSuat = 0.35;
+        } else if(thuNhap>52) {
+            thueSuat = 0.3;
+        }else if(thuNhap>32) {
+            thueSuat = 0.25;
+        }else if(thuNhap>18) {
+            thueSuat = 0.2;
+        }else if(thuNhap>10) {
+            thueSuat = 0.15;
+        }else if(thuNhap>5) {
+            thueSuat = 0.1;
+        }else if(thuNhap>0) {
+            thueSuat = 0.05;
+        }else thueDong.textContent = "Vui lòng nhập lại thu nhập chịu thuế";
+        let taxMoney = (thueSuat*thuNhap*1000000).toLocaleString();
+        thueDong.innerHTML = `Tiền thuế bạn phải đóng là: ${taxMoney} VNĐ`;
+    }
+</script>
+</body>
+</html>

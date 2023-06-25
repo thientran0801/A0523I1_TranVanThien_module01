@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc nhất</title>
+</head>
+<body>
+<h2>Phương trình bậc nhất: ax + b = 0</h2>
+<input type="number" placeholder="Nhập a" id="toanhanga">
+<br><br>
+<input type="number" placeholder="Nhập b" id="toanhangb">
+<br>
+<p id="result" style="color: red">Nghiệm của phương trình: ax + b = 0</p>
+<script>
+    let a_input = document.getElementById("toanhanga");
+    let b_input = document.getElementById("toanhangb");
+    let outPut = document.getElementById("result");
+    a_input.addEventListener("input", gptFunction);
+    b_input.addEventListener("input", gptFunction);
+    function gptFunction() {
+        let toanHanga = parseFloat(a_input.value);
+        let toanHangb = parseFloat(b_input.value);
+        let nghiempt =- toanHangb / toanHanga;
+        if (isNaN(toanHanga) || isNaN(toanHangb)) {
+            outPut.textContent = "Bạn chưa nhập đủ toán hạng cho phương trình";
+            return;
+        }
+        if (toanHanga == 0 && toanHangb == 0) {
+            outPut.innerHTML = `Phương trình:  ${toanHanga}x + ${toanHangb} = 0 có vô số nghiệm`;
+        } else if (toanHanga == 0 && toanHangb != 0) {
+            outPut.innerHTML = `Phương trình:  ${toanHanga}x + ${toanHangb} = 0 vô nghiệm`;
+        }else outPut.innerHTML = `Phương trình:  ${toanHanga}x + ${toanHangb} = 0 có nghiệm: x = ${nghiempt}.`;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích tam giác vuông</title>
+</head>
+<body>
+<h2>Tính diện tích tam giác vuông với 2 cạnh góc vuông a, b:</h2>
+<span>Cạnh a:</span> <br>
+<input type="number" id="canha"> (m)
+<br>
+<br>
+<span>Cạnh b:</span> <br>
+<input type="number" id="canhb" >  (m)
+<br>
+<p id="result" style="color: red">Diện tích tam giác :</p>
+<script>
+    let canhgva = document.getElementById("canha");
+    let canhgvb = document.getElementById("canhb");
+    ketQua = document.getElementById("result");
+    canhgva.addEventListener("input", tinhdt);
+    canhgvb.addEventListener("input", tinhdt);
+    function tinhdt() {
+        let canhA = parseFloat(canhgva.value);
+        let canhB = parseFloat(canhgvb.value);
+        if (isNaN(canhA) || isNaN(canhB)) {
+            ketQua.textContent = "Bạn chưa nhập đủ kích thước ";
+            return;
+        }
+        dienTich = 0.5*canhA*canhB;
+        ketQua.innerHTML = "Diện tích tam giác vuống cạnh a, b là : " +dienTich+ "m2";
+    }
+</script>
+</body>
+</html>

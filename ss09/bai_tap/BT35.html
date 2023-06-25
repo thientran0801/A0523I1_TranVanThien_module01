@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<h2>Chương trình tính giá điện</h2>
+<h3>Các “bậc thang” điện và giá tương ứng theo quy định của Bộ Công Thương:</h3>
+<ul>
+    <li>Bậc 1 (0 đến 50kWh): 1.678 VND/kWh.</li>
+    <li>Bậc 2 (51 đến 100kWh): 1.734 VND/kWh.</li>
+    <li>Bậc 3 (101 đến 200 kWh): 2.014 VND/kWh.</li>
+    <li>Bậc 4 (201 đến 300 kWh): 2.536 VND/kWh.</li>
+    <li>Bậc 5 (301 đến 400 kWh): 2.834 VND/kWh.</li>
+    <li>Bậc 6 (401 kWh trở lên): 2.927 VND/kWh.</li>
+</ul>
+<span>Chọn bậc thang</span><br>
+<select name="bacthang" id="select_value">
+    <option value="bac1">Bậc 1</option>
+    <option value="bac2">Bậc 2</option>
+    <option value="bac3">Bậc 3</option>
+    <option value="bac4">Bậc 4</option>
+    <option value="bac5">Bậc 5</option>
+    <option value="bac6">Bậc 6</option>
+</select>
+<br>
+<span>Nhập số chữ:</span><br>
+<input type="number" placeholder="Nhập số chữ" id="sochudadung">
+<p id="result" style="color: red"></p>
+<script>
+    let bacthangdien = document.getElementById("select_value");
+    let soChu = document.getElementById("sochudadung");
+    let outPut = document.getElementById("result");
+    soChu.addEventListener("input", tinhgiadien);
+    bacthangdien.addEventListener("change", tinhgiadien);
+    function tinhgiadien() {
+        let sochudung = parseFloat(soChu.value);
+        let bacdien = bacthangdien.value;
+        if (isNaN(sochudung)) {
+            outPut.textContent = "Nhập số chữ đã dùng và chọn bậc thang điện để biết giá điện phải trả";
+            return;
+        }
+        let giaDien;
+        if(bacdien == "bac1") {
+            giaDien = 1678;
+        } else if(bacdien == "bac2") {
+            giaDien = 1734;
+        }else if(bacdien == "bac3") {
+            giaDien = 2014;
+        }else if(bacdien == "bac4") {
+            giaDien = 2536;
+        }else if(bacdien == "bac5") {
+            giaDien = 2834;
+        }else
+            giaDien = 2927;
+        let chiPhi =(giaDien*sochudung).toLocaleString();
+        outPut.innerHTML = `Tiền điện phải trả là: ${chiPhi} VNĐ`;
+    }
+</script>
+</body>
+</html>

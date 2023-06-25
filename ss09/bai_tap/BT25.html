@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính  cước điện thoại</title>
+</head>
+<body>
+<span style="color: blue" >Nhập số phút đã gọi:</span>
+<br>
+<input id="sophut" style="text-align: right" type="number">
+<br>
+<br>
+<span style="color: red" id="result">Số tiền bạn phải trả là:</span>
+<script>
+    let SOPHUT = document.getElementById("sophut");
+    SOPHUT.addEventListener("input", tinhcuocFunction);
+    function tinhcuocFunction() {
+        phutGoi = parseInt(SOPHUT.value);
+        if (isNaN(phutGoi)) {
+            document.getElementById("result").innerHTML = "Số tiền bạn phải trả là:";
+            return;
+        }
+        let giaCuoc;
+        if (phutGoi<5) {
+            giaCuoc = 2000;
+        } else if (phutGoi<10) {
+            giaCuoc = 1750;
+        } else if (phutGoi<15) {
+            giaCuoc = 1500;
+        }else if (phutGoi<20) {
+            giaCuoc = 1250;
+        }else if (phutGoi<30) {
+            giaCuoc = 1000;
+        }else if (phutGoi<40) {
+            giaCuoc = 800;
+        }else if (phutGoi<50) {
+            giaCuoc = 700;
+        }else if (phutGoi<60) {
+            giaCuoc = 600;
+        }else giaCuoc = 500;
+        let tinhtien = phutGoi*giaCuoc;
+        tienCuoc = tinhtien.toLocaleString();
+        document.getElementById("result").innerHTML = "Số tiền bạn phải trả là: " +tienCuoc+"đ";
+    }
+</script>
+</body>
+</html>

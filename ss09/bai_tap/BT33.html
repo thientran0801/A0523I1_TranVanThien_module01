@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nhập vào có phải là tuổi của một người</title>
+</head>
+<body>
+<h2>Kiểm tra một số nhập vào có phải là tuổi của  một người không:</h2>
+<p>Nhập số vào ô dưới để kiểm tra:</p>
+<input type="number" name="A" id="numbera" placeholder="Nhập số">
+<p><strong id="result"></strong></p>
+<script>
+    let number = document.getElementById("numbera");
+    number.addEventListener("input", checkinput);
+    function checkinput() {
+        let a = parseFloat(number.value);
+        if (isNaN(a)) {
+            document.getElementById("result").innerHTML = ("");
+            return;
+        }
+        if (a > 0 &&  a < 120) {
+            document.getElementById("result").innerHTML = `${a} là tuổi của một người`;
+        }else document.getElementById("result").innerHTML =`${a} không phải là tuổi của một người`;
+    }
+</script>
+</body>
+</html>

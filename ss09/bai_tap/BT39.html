@@ -17,8 +17,12 @@
     numbers.addEventListener("input", sntFunction);
     function sntFunction() {
         let numbers = parseInt(numbers.value);
+        if(isNaN(numbers)) {
+            hienthi.textContent ="uQDHD";
+            return;
+        }
         let count = 0;
-        let N =2;
+        let N = 2;
         while (count < numbers) {
             if (check(N)) {
                 document.write(N +" ");
@@ -32,8 +36,8 @@
             if(N%i == 0) {
                 return false;
             }
+            return true;
         }
-        return true;
     }
 </script>
 </body>

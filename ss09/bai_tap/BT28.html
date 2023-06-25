@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình vuông</title>
+    <style>
+        td {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h2 align="center">Tính diện tích hình vuông cạnh a và ngược lại:</h2>
+<table style="color: blue; text-align: center" align="center">
+    <tr>
+        <td>Độ dài cạnh(m)</td>
+        <td></td>
+        <td>Diện tích(m<sup>2</sup>)</td>
+    </tr>
+    <tr>
+        <td><input id="canha" style="text-align: center" type="number"></td>
+        <td></td>
+        <td><input id="dientich" style="text-align: center" type="number"></td>
+    </tr>
+</table>
+<script>
+    let aInput = document.getElementById("canha");
+    aInput.addEventListener("input", calsFunction);
+    let sInput = document.getElementById("dientich");
+    sInput.addEventListener("input", calaFunction);
+    function calsFunction() {
+        a_value = parseFloat(aInput.value);
+        let s_value = a_value*a_value;
+        sInput.value = s_value;
+    }
+    function calaFunction() {
+        s_value = parseFloat(sInput.value);
+        let a_value = Math.sqrt(s_value);
+        aInput.value = a_value;
+    }
+</script>
+</body>
+</html>

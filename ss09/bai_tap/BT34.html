@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác</title>
+</head>
+<body>
+<h3>Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác</h3>
+<input type="number" placeholder="Nhập a" id="canha">
+<br><br>
+<input type="number" placeholder="Nhập b" id="canhb">
+<br><br>
+<input type="number" placeholder="Nhập c" id="canhc">
+<br>
+<p id="result" style="color: red"></p>
+<script>
+    let a_input = document.getElementById("canha");
+    let b_input = document.getElementById("canhb");
+    let c_input = document.getElementById("canhc");
+    let outPut = document.getElementById("result");
+    a_input.addEventListener("input", checkFunction);
+    b_input.addEventListener("input", checkFunction);
+    c_input.addEventListener("input", checkFunction);
+    function checkFunction() {
+        let canhA = parseFloat(a_input.value);
+        let canhB = parseFloat(b_input.value);
+        let canhC = parseFloat(c_input.value);
+        if (isNaN(canhA) || isNaN(canhB) || isNaN(canhC)) {
+            outPut.textContent = "Bạn chưa nhập đủ số!";
+            return;
+        }
+        if ( canhA>0 && canhB>0 && canhC>0 && (canhA+canhB)>canhC && (canhC+canhB)>canhA && (canhA+canhC)>canhB) {
+            document.getElementById("result").innerHTML = `${canhA}, ${canhB}, ${canhC} là ba cạnh của một tam giác`
+        } else
+            document.getElementById("result").innerHTML = `${canhA}, ${canhB}, ${canhC} không phải là ba cạnh của một tam giác`
+
+    }
+</script>
+</body>
+</html>

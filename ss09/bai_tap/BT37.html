@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<h3 >Tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</h3>
+<span>Số tiền vay:</span>
+<br>
+<input type="number" id="tienvay"> <span style="color: blue">(Triệu)</span>
+<br>
+<br>
+<span>Lãi suất hàng tháng:</span>
+<br>
+<input type="number" id="laisuat"> <span style="color: blue">(%/tháng)</span>
+<br>
+<br>
+<span>Thời gian vay:</span>
+<br>
+<input type="number" id="time"> <span style="color: blue">(Tháng)</span>
+<br>
+<p id="result" style="color: red">Lãi suất ngân hàng là:</p>
+<script>
+    let ketQua = document.getElementById("result");
+    let tienVay = document.getElementById("tienvay");
+    let laiSuat = document.getElementById("laisuat");
+    let thoiGian = document.getElementById("time");
+    tienVay.addEventListener("input", tinhlaisuat);
+    laiSuat.addEventListener("input", tinhlaisuat);
+    thoiGian.addEventListener("input", tinhlaisuat);
+    function tinhlaisuat() {
+        let tv_Input = parseFloat(tienVay.value);
+        let ls_Input = parseFloat(laiSuat.value);
+        let tg_Input = parseFloat(thoiGian.value);
+        if(isNaN(tv_Input) || isNaN(ls_Input) || isNaN(tg_Input) || tv_Input<0 || tg_Input<0 ||ls_Input<0) {
+            ketQua.textContent ="Vui lòng nhập đầy đủ thông tin";
+            return;
+        }
+        let tienlai;
+        let i;
+        let tongLai = 0;
+        tv_Input=tv_Input*1000000;
+        for (i = 1; i <= tg_Input; i++) {
+            tienlai = tv_Input*ls_Input/100 ;
+            tv_Input = tv_Input + tienlai;
+            tongLai = tongLai + tienlai;
+        }
+        tonglaitra = Math.round(tongLai).toLocaleString();
+        ketQua.innerHTML = `Với khoản vay ${parseFloat(tienVay.value).toLocaleString()} triệu đồng sau ${tg_Input} tháng tiền lãi phải trả là: ${tonglaitra} VNĐ`
+    }
+</script>
+</body>
+</html>

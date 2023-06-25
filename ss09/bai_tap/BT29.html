@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình chữ nhật</title>
+</head>
+<body>
+<h2>Tính diện tích hình chữ nhật cạnh a, b:</h2>
+<span>Chiều rộng a:</span> <br>
+<input type="number" id="chieurong"> (m)
+<br>
+<span>Chiều dài b:</span> <br>
+<input type="number" id="chieudai" >  (m)
+<br>
+<p id="result" style="color: red">Diện tích hình chữ nhật :</p>
+<script>
+    let rong = document.getElementById("chieurong");
+    let dai = document.getElementById("chieudai");
+    ketQua = document.getElementById("result");
+    rong.addEventListener("input", tinhdt);
+    dai.addEventListener("input", tinhdt);
+    function tinhdt() {
+        let chieuRong = parseFloat(rong.value);
+        let chieuDai = parseFloat(dai.value);
+        if (isNaN(chieuRong) || isNaN(chieuDai)) {
+            ketQua.textContent = "Bạn chưa nhập đủ kích thước hình chữ nhật";
+            return;
+        }
+        dienTich = chieuDai*chieuRong;
+        ketQua.innerHTML = "Diện tích hình chữ nhật : " +dienTich+ "m2";
+    }
+</script>
+</body>
+</html>
