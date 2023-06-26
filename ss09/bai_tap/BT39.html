@@ -10,34 +10,36 @@
 <br>
 <input type="number" id="soluong" placeholder="Nhập số lượng" style="text-align: right; width: 150px; color: blue">
 <br>
+<button type="button" onclick="sntFunction()">IN</button>
+<br>
 <p style="color: red" id="result"></p>
 <script>
     let hienthi = document.getElementById("result");
-    let numbers = document.getElementById("soluong");
-    numbers.addEventListener("input", sntFunction);
+    let sl_input = document.getElementById("soluong");
+    // sl_input.addEventListener("input", sntFunction);
     function sntFunction() {
-        let numbers = parseInt(numbers.value);
-        if(isNaN(numbers)) {
-            hienthi.textContent ="uQDHD";
-            return;
-        }
+        let numbers = parseInt(sl_input.value);
+        // if(isNaN(numbers)) {
+        //     hienthi.textContent ="";
+        //     return;
+        // }
         let count = 0;
         let N = 2;
         while (count < numbers) {
             if (check(N)) {
-                document.write(N +" ");
+                hienthi.textContent += `${N},  `;
                 count++;
             }
             N++;
         }
     }
     function check(N) {
-        for(let i = 2; N<= Math.sqrt(N); i++) {
+        for(let i = 2; i<= Math.sqrt(N); i++) {
             if(N%i == 0) {
                 return false;
             }
-            return true;
         }
+        return true;
     }
 </script>
 </body>
