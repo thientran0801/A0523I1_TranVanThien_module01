@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>bài tập</title>
+    <title>Thông báo tăng giảm nhiệt độ</title>
 </head>
 <body>
-
+<p> Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.</p>
+<br>
+<hr>
+<h1 style="color: red" id="result"></h1>
+<script>
+    let temperature_input = prompt("Nhập nhiệt độ hiện tại: ");
+    let temperature = parseFloat(temperature_input);
+    // let temperature = parseFloat(prompt("Nhập nhiệt độ hiện tại: "));
+    let menhLenh = document.getElementById("result");
+    if (temperature > 100) {
+        menhLenh.innerHTML = 'Bạn phải giảm nhiệt độ xuống dưới 100<sup>o</sup>C';
+    } else if (temperature < 20) {
+        menhLenh.innerHTML = `Bạn phải tăng nhiệt độ lên trên 20<sup>o</sup>C`;
+    } else menhLenh.textContent = "Nhiệt độ bình thường";
+</script>
 </body>
 </html>

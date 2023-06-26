@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số đầu tiên trong dãy fibonacci chia hết cho a.</title>
+</head>
+<body>
+<h1>Tìm số đầu tiên trong dãy fibonacci chia hết cho a.</h1>
+<br>
+<input type="number" id="soa" placeholder="Nhập a" style="text-align: right; width: 150px; color: blue">
+<br>
+<br>
+<button type="button" onclick="fibonacci()">IN</button>
+<br>
+<p style="color: red" id="result"></p>
+<script>
+    let hienthi = document.getElementById("result");
+    let a_input = document.getElementById("soa");
+    function fibonacci() {
+        let so_A = parseInt(a_input.value);
+        let number1 = 0;
+        let number2 = 1;
+        let count =0;
+        let numberContinue;
+            while (count<1) {
+                numberContinue =  number1 + number2;
+                number1 = number2 ;
+                number2 = numberContinue;
+                if (numberContinue%so_A == 0) {
+                    hienthi.textContent += `${numberContinue}`;
+                    count++;
+                }
+            }
+        }
+</script>
+</body>
+</html>

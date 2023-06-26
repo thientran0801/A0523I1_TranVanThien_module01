@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In dãy Finonaci</title>
+</head>
+<body>
+<h1>In dãy Finonaci.</h1>
+<span><strong>Bạn muốn hiển thị bao nhiêu số trong dãy fibonacci đầu tiên</strong></span>
+<br>
+<input type="number" id="soluong" placeholder="Nhập số lượng" style="text-align: right; width: 150px; color: blue">
+<br>
+<br>
+<button type="button" onclick="fibonacci()">IN</button>
+<p style="color: red" id="result"></p>
+<script>
+    let hienthi = document.getElementById("result");
+    let sl_input = document.getElementById("soluong");
+    function fibonacci() {
+        let numbers = parseInt(sl_input.value);
+        let number1 = 0;
+        let number2 = 1;
+        if(numbers == 1) {
+            hienthi.textContent += `${number1}`;
+        } else if (numbers == 2) {
+            hienthi.textContent += `${number1}, ${number2},  `;
+        }else if (numbers <= 0){
+            hienthi.textContent = "Số lượng cần in ra không hợp lệ";
+        }else if(numbers>=3) {
+            hienthi.textContent += `${number1}, ${number2}, `;
+            count =2;
+            while (count<numbers) {
+                let numberContinue =  number1 + number2;
+                number1 = number2 ;
+                number2 = numberContinue;
+                hienthi.textContent += `${numberContinue}, `;
+                count++;
+            }
+        }
+    }
+</script>
+</body>
+</html>

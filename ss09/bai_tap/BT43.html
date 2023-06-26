@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</title>
+</head>
+<body>
+<h1>Tính tổng của N số đầu tiên trong dãy fibonacci.</h1>
+<hr>
+<input type="number" id="soluong" placeholder="Nhập N" style="text-align: right; width: 150px; color: blue">
+<br>
+<br>
+<button type="button" onclick="fibonacci()">IN</button>
+<br>
+<p style="color: red" id="result"></p>
+<script>
+    let hienthi = document.getElementById("result");
+    let sl_input = document.getElementById("soluong");
+    function fibonacci() {
+        let numbers = parseInt(sl_input.value);
+        let number1 = 0;
+        let number2 = 1;
+        let totalNumber;
+        if(numbers == 1) {
+            totalNumber = 0;
+        } else if (numbers == 2) {
+            totalNumber = 1;
+        }else if (numbers <= 0){
+            hienthi.innerHTML = "N không hợp lệ";
+        }else if(numbers>=3) {
+            totalNumber = 1;
+            count =2;
+            while (count<numbers) {
+                let numberContinue =  number1 + number2;
+                number1 = number2 ;
+                number2 = numberContinue;
+                totalNumber = totalNumber + numberContinue;
+                count++;
+            }
+        }
+        hienthi.innerHTML = `Tổng ${numbers} số đầu tiên trong dãy fibonacci là: ${totalNumber}`;
+    }
+</script>
+</body>
+</html>

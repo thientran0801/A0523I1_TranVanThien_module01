@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa của một số nguyên dương</title>
+</head>
+<body>
+<h3>Tính giai thừa của một số nguyên dương.</h3>
+<p>Nhập số bạn muốn tính giai thừa vào ô bên dưới:</p>
+<input type="number" id="number_input" placeholder="Nhập số" style="text-align: right; width: 150px; color: blue">
+<p style="color: red" id="result"></p>
+<script>
+    let hienthi = document.getElementById("result");
+    let numberInput = document.getElementById("number_input");
+    numberInput.addEventListener("input", tinhgiaithua);
+    function tinhgiaithua() {
+        let number_Input = parseInt(numberInput.value);
+        if (isNaN(number_Input) || number_Input <= 0) {
+            hienthi.innerHTML = "Hãy nhập lại 1 số nguyên dương.";
+            return;
+        }
+        let i=1;
+        let ketQua = number_Input;
+        while (i<number_Input){
+            ketQua = ketQua*(number_Input-i);
+            i++;
+        }
+        hienthi.innerHTML = `kết quả của ${number_Input}! là: ${ketQua}`;
+    }
+</script>
+</body>
+</html>

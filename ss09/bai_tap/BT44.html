@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</title>
+</head>
+<body>
+<h3>Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</h3>
+<hr>
+<p id="result" style="color: red">Tổng là:</p>
+<script>
+    let ketqua = document.getElementById("result");
+    let total = 0;
+    let i = 0;
+    let N=0;
+    while (i < 30) {
+        if (N%7 == 0) {
+            total = total + N;
+            i++;
+        }
+        N++;
+    }
+    ketqua.innerHTML = "Tổng là:  " +total;
+</script>
+</body>
+</html>

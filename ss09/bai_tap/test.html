@@ -2,39 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hiển thị các số nguyên tố đầu tiên</title>
+    <title>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</title>
 </head>
 <body>
-<h1>Hiển thị các số nguyên tố đầu tiên</h1>
-<span><strong>Bạn muốn hiển thị bao nhiêu số nguyên tố đầu tiên</strong></span>
-<br>
-<input type="number" id="soluong" placeholder="Nhập số lượng" style="text-align: right; width: 150px; color: blue">
-<br>
+<h1>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</h1>
 <p style="color: red" id="result"></p>
 <script>
     let hienthi = document.getElementById("result");
-    let numbers = document.getElementById("soluong");
-    numbers.addEventListener("input", sntFunction);
-    function sntFunction() {
-        let numbers = parseInt(numbers.value);
-        let count = 0;
-        let N =2;
-        while (count < numbers) {
-            if (check(N)) {
-                document.write(N +" ");
-                count++;
+        let number1 = 0;
+        let number2 = 1;
+        let numberContinue;
+        count =0;
+            while (count=0) {
+                numberContinue =  number1 + number2;
+                number1 = number2 ;
+                number2 = numberContinue;
+                if (numberContinue%5 == 0) {
+                    hienthi.innerHTML = numberContinue;
+                    count++;
+                }
             }
-            N++;
-        }
-    }
-    function check(N) {
-        for(let i = 2; N<= Math.sqrt(N); i++) {
-            if(N%i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 </script>
 </body>
 </html>

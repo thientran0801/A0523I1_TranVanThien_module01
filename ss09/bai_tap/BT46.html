@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra các số từ 1 đến 100</title>
+</head>
+<body>
+<p style="color: red"><strong>GAME ĐOÁN SỐ</strong></p>
+<button type="button" onclick="playFunction();">PLAY</button>
+<script>
+    function playFunction() {
+        let a_input = prompt("Khoảng đoán: (a - b) .Nhập a: ");
+        let b_input = prompt("Khoảng đoán: (a - b) .Nhập b: ");
+        min = parseFloat(a_input);
+        max = parseFloat(b_input);
+        numberRandom = Math.floor(Math.random()*(max - min + 1)) + min;
+        let c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
+        while (c_input != numberRandom) {
+            if (c_input > numberRandom) {
+                alert("Lớn hơn!");
+                c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
+            }else if (c_input < numberRandom) {
+                alert("Nhỏ hơn!");
+                c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
+            }
+        }
+        alert("Chúc mừng!");
+    }
+</script>
+</body>
+</html>
