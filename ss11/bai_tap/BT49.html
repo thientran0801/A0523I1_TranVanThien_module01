@@ -8,10 +8,53 @@
 <p> In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</p>
 <hr>
 <script>
+    let rowresult1 ="";
+    for (let i=0; i<5; i++) {
+        rowresult1 += "&#10045";
+        document.write("<p>"+"<strong>"+rowresult1+"</strong>"+"</p>");
+    }
+    document.write("<br>");
+    let rowresult2 ="&#10045";
+    for (let i=5; i>0; i--) {
+        let j =0;
+        while (j<i) {
+            document.write("<strong>"+rowresult2+"</strong>");
+            j++
+        }
+        document.write("<br>");
+        document.write("<br>");
+    }
+    document.write("<br>");
     for (let i=1; i<=5; i++) {
-        document.write(`<strong>*</strong>`);
-        <br>
-    };
+        let rowresult3="&#10045";
+        let space = "&#10045";
+        let x=i;
+        while (x<5){
+            // let space = "&nbsp&nbsp";
+            document.write("<strong style='color: white'>"+space+"</strong>");
+            x++;
+        }
+        for (let j=0; j<i; j++) {
+            document.write("<strong>"+rowresult3+"</strong>");
+        }
+        document.write("<br>");
+        document.write("<br>");
+    }
+    document.write("<br>");
+    for (let i=0; i<5; i++) {
+        let rowresult3="&#10045";
+        for (let j=0; j<i; j++) {
+            document.write("<strong  style='color: white'>"+rowresult3+"</strong>");
+        }
+        let x=i;
+        while (x<5){
+            // let space = "&nbsp&nbsp";
+            document.write("<strong>"+rowresult3+"</strong>");
+            x++;
+        }
+        document.write("<br>");
+        document.write("<br>");
+    }
 </script>
 </body>
 </html>
