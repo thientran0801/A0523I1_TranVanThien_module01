@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>In ra các số từ 1 đến 100</title>
+    <title>Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</title>
 </head>
 <body>
-<p>In ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".</p>
+<h3>Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</h3>
 <hr>
-<span style="color: red" id="result">Result: </span>
+<p id="result" style="color: red">Tổng là:</p>
 <script>
-    let hienthi = document.getElementById("result");
-    for (let i=1; i<=100; i++) {
-        if (i%3 == 0 && i%5==0) {
-            hienthi.innerHTML += `FizzBuzz,  ` ;
-            continue;
-        } else if (i%3 == 0) {
-            hienthi.innerHTML += `Fizz,  ` ;
-            continue;
-        }else if (i%5 == 0) {
-            hienthi.innerHTML += `Buzz,  ` ;
-            continue;
+    let ketqua = document.getElementById("result");
+    let total = 0;
+    let i = 0;
+    let N=0;
+    while (i < 30) {
+        if (N%7 == 0) {
+            total = total + N;
+            i++;
         }
-        hienthi.innerHTML += `${i}, `
+        N++;
     }
+    ketqua.innerHTML = "Tổng là:  " +total;
 </script>
 </body>
 </html>

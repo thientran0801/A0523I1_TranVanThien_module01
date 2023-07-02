@@ -2,42 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</title>
+    <title>Thông báo tăng giảm nhiệt độ</title>
 </head>
 <body>
-<h1>Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</h1>
-<span><strong>Bạn muốn hiển thị bao nhiêu số trong dãy fibonacci đầu tiên</strong></span>
+<p> Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.</p>
 <br>
-<input type="number" id="soluong" placeholder="Nhập số lượng" style="text-align: right; width: 150px; color: blue">
-<br>
-<button type="button" onclick="fibonacci()">IN</button>
-<br>
-<p style="color: red" id="result"></p>
+<hr>
+<h1 style="color: red" id="result"></h1>
 <script>
-    let hienthi = document.getElementById("result");
-    let sl_input = document.getElementById("soluong");
-    function fibonacci() {
-        let numbers = parseInt(sl_input.value);
-        let number1 = 0;
-        let number2 = 1;
-        if(numbers == 1) {
-            hienthi.textContent += `${number1}`;
-        } else if (numbers == 2) {
-            hienthi.textContent += `${number1}, ${number2},  `;
-        }else if (numbers <= 0){
-            hienthi.textContent = "Số lượng cần in ra không hợp lệ";
-        }else if(numbers>=3) {
-            hienthi.textContent += `${number1}, ${number2}, `;
-            count =2;
-            while (count<numbers) {
-                let numberContinue =  number1 + number2;
-                number1 = number2 ;
-                number2 = numberContinue;
-                hienthi.textContent += `${numberContinue}, `;
-                count++;
-            }
-        }
-    }
+    let temperature_input = prompt("Nhập nhiệt độ hiện tại: ");
+    let temperature = parseFloat(temperature_input);
+    // let temperature = parseFloat(prompt("Nhập nhiệt độ hiện tại: "));
+    let menhLenh = document.getElementById("result");
+    if (temperature > 100) {
+        menhLenh.innerHTML = 'Bạn phải giảm nhiệt độ xuống dưới 100<sup>o</sup>C';
+    } else if (temperature < 20) {
+        menhLenh.innerHTML = `Bạn phải tăng nhiệt độ lên trên 20<sup>o</sup>C`;
+    } else menhLenh.textContent = "Nhiệt độ bình thường";
 </script>
 </body>
 </html>

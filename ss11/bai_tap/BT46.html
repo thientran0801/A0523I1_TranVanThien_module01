@@ -5,26 +5,23 @@
     <title>In ra các số từ 1 đến 100</title>
 </head>
 <body>
-<p style="color: red"><strong>GAME ĐOÁN SỐ</strong></p>
-<button type="button" onclick="playFunction();">PLAY</button>
+<p>In ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".</p>
+<hr>
+<span style="color: red" id="result">Result: </span>
 <script>
-    function playFunction() {
-        let a_input = prompt("Khoảng đoán: (a - b) .Nhập a: ");
-        let b_input = prompt("Khoảng đoán: (a - b) .Nhập b: ");
-        min = parseFloat(a_input);
-        max = parseFloat(b_input);
-        numberRandom = Math.floor(Math.random()*(max - min + 1)) + min;
-        let c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
-        while (c_input != numberRandom) {
-            if (c_input > numberRandom) {
-                alert("Lớn hơn!");
-                c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
-            }else if (c_input < numberRandom) {
-                alert("Nhỏ hơn!");
-                c_input = parseFloat(prompt("Nhập số bạn muốn đoán: "));
-            }
+    let hienthi = document.getElementById("result");
+    for (let i=1; i<=100; i++) {
+        if (i%3 == 0 && i%5==0) {
+            hienthi.innerHTML += `FizzBuzz,  ` ;
+            continue;
+        } else if (i%3 == 0) {
+            hienthi.innerHTML += `Fizz,  ` ;
+            continue;
+        }else if (i%5 == 0) {
+            hienthi.innerHTML += `Buzz,  ` ;
+            continue;
         }
-        alert("Chúc mừng!");
+        hienthi.innerHTML += `${i}, `
     }
 </script>
 </body>

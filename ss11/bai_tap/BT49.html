@@ -2,58 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</title>
+    <title>Tính giai thừa của một số nguyên dương</title>
 </head>
 <body>
-<p> In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</p>
-<hr>
+<h3>Tính giai thừa của một số nguyên dương.</h3>
+<p>Nhập số bạn muốn tính giai thừa vào ô bên dưới:</p>
+<input type="number" id="number_input" placeholder="Nhập số" style="text-align: right; width: 150px; color: blue">
+<p style="color: red" id="result"></p>
 <script>
-    let rowresult1 ="";
-    for (let i=0; i<5; i++) {
-        rowresult1 += "&#10045";
-        document.write("<p>"+"<strong>"+rowresult1+"</strong>"+"</p>");
-    }
-    document.write("<br>");
-    let rowresult2 ="&#10045";
-    for (let i=5; i>0; i--) {
-        let j =0;
-        while (j<i) {
-            document.write("<strong>"+rowresult2+"</strong>");
-            j++
+    let hienthi = document.getElementById("result");
+    let numberInput = document.getElementById("number_input");
+    numberInput.addEventListener("input", tinhgiaithua);
+    function tinhgiaithua() {
+        let number_Input = parseInt(numberInput.value);
+        if (isNaN(number_Input) || number_Input <= 0) {
+            hienthi.innerHTML = "Hãy nhập lại 1 số nguyên dương.";
+            return;
         }
-        document.write("<br>");
-        document.write("<br>");
-    }
-    document.write("<br>");
-    for (let i=1; i<=5; i++) {
-        let rowresult3="&#10045";
-        let space = "&#10045";
-        let x=i;
-        while (x<5){
-            // let space = "&nbsp&nbsp";
-            document.write("<strong style='color: white'>"+space+"</strong>");
-            x++;
+        let i=1;
+        let ketQua = number_Input;
+        while (i<number_Input){
+            ketQua = ketQua*(number_Input-i);
+            i++;
         }
-        for (let j=0; j<i; j++) {
-            document.write("<strong>"+rowresult3+"</strong>");
-        }
-        document.write("<br>");
-        document.write("<br>");
-    }
-    document.write("<br>");
-    for (let i=0; i<5; i++) {
-        let rowresult3="&#10045";
-        for (let j=0; j<i; j++) {
-            document.write("<strong  style='color: white'>"+rowresult3+"</strong>");
-        }
-        let x=i;
-        while (x<5){
-            // let space = "&nbsp&nbsp";
-            document.write("<strong>"+rowresult3+"</strong>");
-            x++;
-        }
-        document.write("<br>");
-        document.write("<br>");
+        hienthi.innerHTML = `kết quả của ${number_Input}! là: ${ketQua}`;
     }
 </script>
 </body>
