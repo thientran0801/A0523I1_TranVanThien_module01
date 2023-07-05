@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In các phần tử trong mảng theo thứ tự đảo ngược;</title>
+</head>
+<body>
+<p>In đảo ngược các phần tử của mảng:</p>
+<hr>
+<p id="manga" style="color: red"></p>
+<P id="result">In đảo ngược: </P>
+<script>
+    let arr = ['k','d','g','h','t','h','d','23','4','56','67'];
+    document.getElementById("manga").innerText = "Mảng a: " +arr;
+    let arrnguoc = arr.reverse();
+    document.getElementById("result").innerText = "In đảo ngược: " +arrnguoc.join("");
+</script>
+</body>
+</html>

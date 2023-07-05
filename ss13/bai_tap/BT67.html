@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết một chương trình để đếm số từ trong một chuỗi</title>
+</head>
+<body>
+<p style="color: blue">Viết một chương trình để đếm số từ trong một chuỗi</p>
+<input type="text" id="text_input" placeholder="Nhập chuỗi..." oninput="checkWords()">
+<hr>
+<span style="color: red" id="string"> Chuỗi:</span>
+<br>
+<span style="color: red" id="result">Có số từ: </span>
+<script>
+    function checkWords() {
+        let textIput = document.getElementById("text_input").value;
+        textIput = textIput.trim();
+        let numberWords = textIput.split(" ");
+        document.getElementById("string").innerHTML = "Chuỗi: " +textIput;
+        document.getElementById("result").innerHTML = "Có " + numberWords.length+" từ";
+    }
+</script>
+</body>
+</html>

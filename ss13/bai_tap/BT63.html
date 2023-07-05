@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nối mảng.</title>
+</head>
+<body>
+<p>Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.</p>
+<hr>
+<p id="manga" style="color: red">Mảng a: </p>
+<p id="mangb" style="color: red">Mảng b: </p>
+<P id="result">Mảng c:  </P>
+<script>
+    let arra = [];
+    let arrb = [];
+    for (let i=0; i<10; i++) {
+        arra.push(Math.round(Math.random()*(10-0)));
+        arrb.push(Math.round(Math.random()*(10-0)));
+    }
+    document.getElementById("manga").innerText = "Mảng a: " +arra;
+    document.getElementById("mangb").innerText = "Mảng b: " +arrb;
+    // let arrc = [...arra,...arrb];
+    let arrc = arra.concat(arrb);
+    document.getElementById("result").innerText = "Mảng c: " +arrc;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.</title>
+</head>
+<body>
+<p>Sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.</p>
+<hr>
+<p id="mangbd" style="color: red">Mảng ban đầu: </p>
+<P id="result">Mảng giảm dần: </P>
+<script>
+    let tb = document.getElementById("mangbd");
+    let arr = [];
+    for (let i=0; i<10; i++) {
+        arr.push(Math.round(Math.random()*(15-0)));
+    }
+    tb.innerHTML = "Mảng ban đầu là: " +arr +"<br>";
+    let giamdan = arr.sort((a, b) => b - a);
+    document.getElementById("result").innerHTML = "Mảng sắp xếp giảm đàn: " +giamdan;
+</script>
+</body>
+</html>

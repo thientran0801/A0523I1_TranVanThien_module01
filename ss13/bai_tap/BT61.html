@@ -5,25 +5,28 @@
     <title>Kiểm tra xem số nhập vào có nằm trong chuỗi hay không</title>
 </head>
 <body>
-<p id="result" style="color: red">result</p>
-<input id="textcheck" placeholder="Nhập V">
+<p id="mangbd" style="color: red">Mảng ban đầu: </p>
+<P id="result">Kết quả check V: </P>
+<P id="xoaV"></P>
+<input type="number" id="textcheck" placeholder="Nhập V" oninput="checkFunction()">
 <script>
-    let textCheck = document.getElementById("textcheck");
-    textCheck.addEventListener("input", checkFunction);
-    let tb = document.getElementById("result");
+    let tb = document.getElementById("mangbd");
     let arr = [];
     for (let i=0; i<10; i++) {
         arr.push(Math.round(Math.random()*(15-0)));
     }
-    tb.innerHTML = arr;
+    tb.innerHTML = "Mảng ban đầu: " +arr;
     function checkFunction() {
+        let textCheck = parseFloat(document.getElementById("textcheck").value);
         for (let j=0; j< arr.length; j++) {
-            if (arr[j] == (textCheck.value)) {
-                tb.innerHTML = "V is in the array";
-                return;
+            if (arr[j] == textCheck) {
+                document.getElementById("result").innerHTML = "V is in the array";
+                arr.splice(arr.indexOf(textCheck), 1);
+                document.getElementById("xoaV").innerHTML = "Mảng sau khi xoá V: " +arr;
             }
-            if (arr.indexOf(textCheck.value) == -1) {
-                tb.innerHTML = "V is not in the array";
+            if (arr.indexOf(textCheck) == -1) {
+                document.getElementById("result").innerHTML = textCheck;
+                document.getElementById("result").innerHTML = "V is not in the array";
             }
         }
     }

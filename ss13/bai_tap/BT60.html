@@ -20,9 +20,8 @@
         for (let j=0; j< arr.length; j++) {
             if (arr[j] == (textCheck.value)) {
                 tb.innerHTML = "V is in the array";
-                return;
-            }
-            if (arr.indexOf(textCheck.value) == -1) {
+                break;
+            }else if (arr.indexOf(textCheck.value) == -1) {
                 tb.innerHTML = "V is not in the array";
             }
         }
