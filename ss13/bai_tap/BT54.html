@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+    <style>
+        tr {
+            height: 20px;
+        }
+        th {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h4>Từ điển: Anh - Việt</h4>
+<table border="1" align="center" cellspacing="0" style="border-color: red">
+    <tr>
+        <th>Nhập từ bạn buốn tra</th>
+        <th>Kết quả</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="text_search" style="border: none" placeholder="Nhập từ cần tra"></td>
+        <td id="result"></td>
+    </tr>
+</table>
+<script>
+    const textSearch = document.getElementById("text_search");
+    const ketQua = document.getElementById("result");
+    textSearch.addEventListener("input", searchFunction);
+    function searchFunction() {
+        let text_input = textSearch.value;
+        // console.log(text_input);
+        let englishlist = ["black", "red", "blue", "orange", "white", "pink", "yellow"];
+        let vietnameselist = ["màu đen", "màu đỏ", "màu xanh dương", "màu cam", "màu trắng", "màu hồng", "màu vàng"];
+        for (let i=0; i<englishlist.length; i++) {
+            if(text_input.toLowerCase() == englishlist[i].toLowerCase()){
+                ketQua.innerHTML = vietnameselist[i];
+                return;
+            } else {
+                ketQua.textContent = "";
+            }
+        }
+    }
+</script>
+</body>
+</html>

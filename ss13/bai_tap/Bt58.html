@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó</title>
+</head>
+<body>
+<p>Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó</p>
+<p style="color: red" id="bandau"></p>
+<p style="color: red" id="tang"></p>
+<p style="color: red" id="giam"></p>
+<script>
+    const Arr = [];
+    for (let i=0; i<10; i++) {
+        Arr.push(Math.round(Math.random()*(30-0)));
+    }
+    document.getElementById("bandau").innerHTML = "Mảng ban đầu: " +Arr;
+    let Arrtang = Arr.sort((a, b) => a-b);
+    document.getElementById("tang").innerHTML = "Mảng tăng dần: " +Arrtang;
+    let Arrdaonguoc = Arrtang.reverse();
+    document.getElementById("giam").innerHTML = "Mảng đảo ngược: " +Arrdaonguoc;
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị ra được phần tử có giá trị lớn nhất, in ra giá trị trung bình của các phân tử.</title>
+</head>
+<body>
+<p>Hiển thị ra được phần tử có giá trị lớn nhất trong mảng và in ra giá trị trung bình của các phân tử.</p>
+<hr>
+<p style="color: red" id="ketqua"></p>
+<script>
+    let Arr = [];
+    for (let i=0; i<10; i++) {
+        Arr.push(Math.round(Math.random()*(30-0)));
+    }
+    console.log(Arr);
+    let numberMax = Arr[0];
+    let sum = Arr[0];
+    for (let j=1; j<Arr.length; j++) {
+        if (Arr[j] > numberMax) {
+            numberMax = Arr[j];
+        }
+        sum += Arr[j];
+    }
+    let average = sum/(Arr.length);
+    document.getElementById("ketqua").innerHTML = `Chuỗi ${Arr.join(",  ")} có ${numberMax} là số nguyên lớn nhất và có giá trị trung bình của các phân tử là ${average}`;
+</script>
+</body>
+</html>

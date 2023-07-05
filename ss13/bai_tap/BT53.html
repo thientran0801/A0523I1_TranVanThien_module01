@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng các hàm có sẵn của mảng</title>
+</head>
+<body>
+<p>Ex: 1: Write a simple JavaScript program to join all elements of the following array into a tring</p>
+<script>
+    let myColor = ["Red", "Green", "Black", "White"];
+    document.write(myColor.toString() + "<br>");
+    document.write(myColor.join(" ") + "<br>");
+    document.write(myColor.join("+") + "<br>");
+    document.write(myColor.join() + "<br>");
+    document.write("<hr>");
+    document.write("Ex 2: Insert dashes (-) between each even numbers." + "<br>");
+    let number = prompt("Enter number: ");
+    let str2 = number.toString();
+    let resuilt2 = [str2[0]];
+    for (let i=1; i<str2.length; i++) {
+        if ((str2[i-1]%2) == 0 && (str2[i]%2) == 0) {
+            resuilt2.push("-", str2[i]);
+        }else {
+            resuilt2.push(str2[i]);
+        }
+    }
+    document.write(resuilt2.join("") +"<br>");
+    document.write("<hr>");
+    document.write("Ex 3: Write a JavaScript program that accepts a string as input and swaps the case of each character." + "<br>");
+    let str3 = prompt("");
+    let UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let LOWER = "abcdefghijklmnopqrstuvwxyz";
+    let resuilt3 = [];
+    for (let x=0; x<str3.length; x++) {
+        if (UPPER.indexOf(str3[x]) !== -1) {
+            resuilt3.push(str3[x].toLowerCase());
+        }else if (LOWER.indexOf(str3[x] !== -1)) {
+            resuilt3.push(str3[x].toUpperCase());
+        }else resuilt3.push(str3[x]);
+    }
+    document.write(resuilt3.join(""));
+</script>
+</body>
+</html>

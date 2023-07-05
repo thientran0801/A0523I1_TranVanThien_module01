@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình đếm số nguyên âm trong một chuỗi</title>
+</head>
+<body>
+<p>Viết chương trình đếm số nguyên âm trong một chuỗi</p>
+<hr>
+<p id="result" style="color: red">result</p>
+<script>
+    let tb = document.getElementById("result");
+    let arr = [];
+    let soam = 0;
+    for (let i=0; i<15; i++) {
+        let amduong = Math.random()>0.5 ? 1: -1;
+        arr.push(Math.round(Math.random()*(15-0)*amduong));
+    }
+    console.log(arr);
+    for (let j=0; j< arr.length; j++) {
+        if (arr[j]<0) {
+            soam++;
+        }
+    }
+    tb.innerHTML = `Chuỗi sau: ${arr.join(", ")} <br> Có tổng cộng ${soam} số âm`;
+</script>
+</body>
+</html>

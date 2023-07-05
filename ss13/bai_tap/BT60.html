@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem số nhập vào có nằm trong chuỗi hay không</title>
+</head>
+<body>
+<p id="result" style="color: red">result</p>
+<input id="textcheck" placeholder="Nhập V">
+<script>
+    let textCheck = document.getElementById("textcheck");
+    textCheck.addEventListener("input", checkFunction);
+    let tb = document.getElementById("result");
+    let arr = [];
+    for (let i=0; i<10; i++) {
+        arr.push(Math.round(Math.random()*(15-0)));
+    }
+    tb.innerHTML = arr;
+    function checkFunction() {
+        for (let j=0; j< arr.length; j++) {
+            if (arr[j] == (textCheck.value)) {
+                tb.innerHTML = "V is in the array";
+                return;
+            }
+            if (arr.indexOf(textCheck.value) == -1) {
+                tb.innerHTML = "V is not in the array";
+            }
+        }
+    }
+</script>
+</body>
+</html>
