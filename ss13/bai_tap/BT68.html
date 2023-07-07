@@ -7,8 +7,23 @@
 <body>
 <p style="color: blue">Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.</p>
 <hr>
+<input type="text" placeholder="Nhập chuỗi 1..." id="chuoi1" oninput="compareFunction()">
+<br>
+<br>
+<input type="text" placeholder="Nhập chuỗi 2..." id="chuoi2" oninput="compareFunction()">
+<p id="result" style="color: red"> So sánh 2 chuỗi:</p>
 <script>
-    
+    function compareFunction() {
+        let arr1 = document.getElementById("chuoi1").value;
+        let arr2 = document.getElementById("chuoi2").value;
+        // document.getElementById("result").innerHTML = arr2;
+        if (arr1 != "" && arr2 != "") {
+            if (arr1 == arr2) {
+                document.getElementById("result").innerHTML = "Hai chuỗi giống nhau";
+            } else document.getElementById("result").innerHTML ="Hai chuỗi khác nhau";
+        }
+        else document.getElementById("result").innerHTML = "Nhập đủ 2 chuỗi cần so sánh";
+    }
 </script>
 </body>
 </html>
