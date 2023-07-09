@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meters</title>
+    <style>
+        td {
+            height: 30px;
+            width: 200px;
+            text-align: center;
+        }
+        input {
+            text-align: center;
+            border-style: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<p>Chuyển đổi giữa feet và meters:</p>
+<hr>
+<table border="1" cellspacing="0" style="border-color: blue">
+    <tr>
+        <td>Feet</td>
+        <td>Meters</td>
+    </tr>
+    <tr>
+        <td><input type="number" id="feet" oninput="feettometers(this.value)"> </td>
+        <td><input type="number" id="meters" oninput="meterstofeet(this.value)"> </td>
+    </tr>
+    <script>
+        let feet_input = document.getElementById("feet");
+        let meters_input = document.getElementById("meters");
+        function feettometers(feetvalue) {
+            feetvalue = parseFloat(feetvalue);
+            meters_input.value = feetvalue*0.305;
+        }
+        function meterstofeet(metersvalue) {
+            metersvalue = parseFloat(metersvalue);
+            feet_input.value = metersvalue*3.279;
+        }
+    </script>
+</table>
+</body>
+</html>

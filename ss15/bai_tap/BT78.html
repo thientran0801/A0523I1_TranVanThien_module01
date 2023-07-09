@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</title>
+</head>
+<body>
+<p> Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</p>
+<hr>
+<p>Nhập bán kính đường tròn cần tính:</p>
+<input type="number" id="radius" oninput="cal_Cicle()" placeholder="Nhập r..."><span> m.</span>
+<p style="color: red" id="perimeter"></p>
+<p style="color: red" id="area"></p>
+<script>
+    let perimeter_output = document.getElementById("perimeter");
+    let area_output = document.getElementById("area");
+    function cal_Perimeter(rad) {
+        let per = (2*Math.PI*rad).toFixed(2);
+        return per;
+    }
+    function cal_Area(rad) {
+        let are = (Math.PI*rad*rad).toFixed(2);
+        return are;
+    }
+    function cal_Cicle() {
+        let radius_input = +document.getElementById("radius").value;
+        perimeter_output.innerHTML = "Chu vi hình tròn bán kính r = " +radius_input+"m là: " +cal_Perimeter(radius_input).toLocaleString()+ " m.";
+        area_output.innerHTML = `Diện tích hình tròn bán kính r = ${radius_input}m là: ${cal_Area(radius_input).toLocaleString()} m<sup>2</sup> `;
+        if (radius_input == "") {
+            perimeter_output.innerHTML = "";
+            area_output.innerHTML = "";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+<p>Tìm giá trị nhỏ nhất của mảng:</p>
+<hr>
+<label>Nhập mảng: </label>
+<input type="text" id="arrinput" placeholder="a,b,c,d,..." oninput="runFunction()">
+<p id="result" style="color: red">Hãy nhập các phần tử của chuỗi: </p>
+<script>
+    let minoutput = document.getElementById("result");
+    function minArray(array) {
+        let min = array[0];
+        for (let i=1; i<array.length; i++) {
+            if (array[i]<min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+    function runFunction() {
+        let arr_input = document.getElementById("arrinput").value;
+        let arr = arr_input.split(",");
+        // if (arr.length == 0) {
+        //     minoutput.textContent = "Hãy nhập các phần tử của chuỗi...";
+        // } else {
+            minoutput.textContent = "Giá trị nhỏ nhất của chuỗi: " + minArray(arr);
+        // }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm chòm sao tương ứng</title>
+</head>
+<body>
+<p> Tên các ngôi sao: Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus.</p>
+<p>Tên chòm sao tương ứng: Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo.</p>
+<hr>
+<h2>Nhập tên sao bạn muốn tìm:</h2>
+<input type="text" id="star" oninput="runFunction()" placeholder="Nhập tên sao">
+<p style="color: red" id="result">Thuộc chòm sao:</p>
+<script>
+    let arrstar = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let arrconstellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    function checkInclude(star) {
+        for (let i=0; i<arrstar.length; i++) {
+            if (arrstar[i].toLowerCase() == star.toLowerCase()) {
+                return arrconstellation[i];
+            }
+            else if (arrstar.indexOf(star) == -1) {
+                let output ="";
+                output = "Không tìm thấy chòm sao thích hợp!";
+                return output;
+            }
+        }
+    }
+    function runFunction() {
+        let ketqua = document.getElementById("result");
+        let star_input = document.getElementById("star").value;
+        ketqua.innerHTML = checkInclude(star_input);
+    }
+</script>
+</body>
+</html>

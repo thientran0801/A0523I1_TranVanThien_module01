@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</title>
+</head>
+<body>
+<p>Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</p>
+<hr>
+<p>Nhập số bạn muốn tính bình phương vào ô bên dưới:</p>
+<input type="number" id="number_input" oninput="square()" placeholder="Nhập số..">
+<p id="result" style="color: red">Kết quả: </p>
+<script>
+    let ketqua = document.getElementById("result");
+    function square_cal(num_val) {
+        num_val = +num_val;
+        bp = num_val*num_val;
+        return bp;
+    }
+    function square() {
+        let num = +document.getElementById("number_input").value;
+        ketqua.textContent = `Bình phương của ${num} là: `+square_cal(num);
+        if (num == "") {
+            ketqua.textContent = "";
+        }
+    }
+
+
+</script>
+</body>
+</html>

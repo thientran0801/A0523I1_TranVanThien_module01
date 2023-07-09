@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</title>
+</head>
+<body>
+<h2>Tính giai thừa</h2>
+<hr>
+<p>Nhập số cần tính giai thừa:</p>
+<input type="number" id="number_input" oninput="calFunction()" placeholder="Nhập số...">
+<p style="color: red" id="result">Kết quả:</p>
+<script>
+    let output = document.getElementById("result");
+    function factorial(number) {
+        let total = 1;
+        if (number == 0)
+            return total;
+        for (let i=1; i<=number; i++) {
+            total = total*i;
+        }
+        return total;
+    }
+    function calFunction() {
+        let number_cal = +document.getElementById("number_input").value;
+        if (number_cal < 0){
+            output.innerHTML = "Hãy nhập số nguyên lớn hơn hoặc bằng 0!"
+        }else output.innerHTML = `Kết quả: ${number_cal}! là: `+ factorial(number_cal);
+    }
+</script>
+</body>
+</html>
