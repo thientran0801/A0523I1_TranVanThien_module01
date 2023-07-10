@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<p>Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.</p>
+<hr>
+<label for="number">Nhập số để kiểm tra: </label>
+<input type="number" placeholder="Type a number" id="number" oninput="checkFunction()"><br>
+<p id="result">Kết quả check: </p>
+<script>
+    function checknumber(number) {
+        if (number>0 && Number.isInteger(number))
+            return `${number} là số nguyên dương.`
+        else
+            return `${number} không phải là số nguyên dương.`
+    }
+    function checkFunction() {
+        let number_input = +document.getElementById("number").value;
+        document.getElementById("result").innerHTML = checknumber(number_input);
+    }
+</script>
+</body>
+</html>

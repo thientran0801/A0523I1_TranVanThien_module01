@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xem ký tự nhập vào có phải là ký tự số không.</title>
+</head>
+<body>
+<p>Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.</p>
+<hr>
+<input type="text" id="value_input" oninput="checkFunction()" placeholder="Nhập vào đây...">
+<p id="result"></p>
+<script>
+    function isnumber (isnumber) {
+        if (!isNaN(isnumber)) {
+            return true;
+        }else
+            return false;
+    }
+    function checkFunction() {
+        let val = document.getElementById("value_input").value;
+        let val_input = +val;
+        if (isnumber(val_input)) {
+            document.getElementById("result").innerHTML = `${val} là ký tự số`;
+            document.getElementById("result").style.color = 'green';
+        }else {
+            document.getElementById("result").innerHTML = `${val} không phải là ký tự số`;
+            document.getElementById("result").style.color = 'red';
+        }
+        if (val == "") {
+            document.getElementById("result").innerHTML = "";
+        }
+    }
+</script>
+</body>
+</html>

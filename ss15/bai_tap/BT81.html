@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</title>
+</head>
+<body>
+<p>Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</p>
+<hr>
+<label for="number1">Nhập số thứ 1: </label>
+<input type="number" placeholder="number 1" id="number1" oninput="checkMin()"><br>
+<label for="number2">Nhập số thứ 2: </label>
+<input type="number" placeholder="number 2" id="number2" oninput="checkMin()"><br>
+<label for="number3">Nhập số thứ 3: </label>
+<input type="number" placeholder="number 3" id="number3" oninput="checkMin()"><br>
+<p id="result">Giá trị nhỏ nhất là: </p>
+<script>
+    function minFunction() {
+        // let numberMin = a;
+        // if (a>b)
+        //     numberMin = b;
+        // if (b>c)
+        //     numberMin = c;
+        // return numberMin;
+        let sort_Arr = [];
+        for (let i=0; i<arguments.length; i++) {
+            sort_Arr.push(arguments[i]);
+        }
+        sort_Arr.sort((a,b) => a-b);
+        return sort_Arr[0];
+    }
+    let resultOutput = document.getElementById("result");
+    function checkMin() {
+        let num1 = document.getElementById("number1").value;
+        let num2 = document.getElementById("number2").value;
+        let num3 = document.getElementById("number3").value;
+        resultOutput.innerHTML = "Giá trị nhỏ nhất trong 3 số trên là : "+ minFunction(num1, num2, num3);
+    }
+</script>
+</body>
+</html>
