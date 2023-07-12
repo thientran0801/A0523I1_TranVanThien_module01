@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo mảng</title>
+</head>
+<body>
+<p>Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. </p>
+<hr>
+<label for="arr_input">Nhập chuỗi: </label><br>
+<input type="text" id="arr_input"> <br>
+<label for="characters">Nhập ký tự bạn muốn kiểm tra: </label><br>
+<input type="text" id="characters"> <br>
+<br>
+<button type="button" onclick="swapFunction()">Check</button>
+<P id="result" style="color: red;">Kết quả check: </P>
+<script>
+    function checkInclude (array, a) {
+        if (array.indexOf(a) != -1) {
+            let count = 0
+            for (let i= 0; i <array.length; i++) {
+                if (array[i] == a) {
+                    count++;
+                }
+            }
+            return count;
+        }else return -1;
+    }
+    let KQ = document.getElementById("result");
+    function swapFunction() {
+        let stringInput = document.getElementById("arr_input").value;
+        let char_input = document.getElementById("characters").value;
+        let arr = stringInput.split("");
+        KQ.innerHTML ="Index: " +checkInclude(arr, char_input)
+    }
+</script>
+</body>
+</html>

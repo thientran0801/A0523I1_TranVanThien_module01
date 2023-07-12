@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Đổi chỗ 2 sô nguyên</title>
+    <title>Đổi chỗ 2 ký tự</title>
 </head>
 <body>
 <p>Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.</p>
 <hr>
-<label for="number1">Nhập vào 2 số: </label>
-<input type="text" placeholder="Number1, Number2" id="number1" oninput="checkMin()"><br>
-<buttun></buttun>
-<p id="result"></p>
+<label for="number1">Số thứ nhất: </label><br>
+<input type="number" id="number1"> <br>
+<label for="number2">Số thứ hai: </label><br>
+<input type="number" id="number2">
+<br>
+<button type="button" onclick="swapFunction()">Đổi vị trí</button>
 <script>
-function changeNumber(a, b) {
-    
-
-}
+    function swap (a, b) {
+        let c = a.value;
+        a.value = b.value;
+        b.value = c;
+    }
+    function swapFunction() {
+        let num1 = document.getElementById("number1");
+        let num2 = document.getElementById("number2");
+        swap (num1, num2);
+    }
 </script>
 </body>
 </html>
