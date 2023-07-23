@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</title>
+    <title>Bắt sự kiện thay đổi giá trị của thẻ</title>
 </head>
 <body>
-<h1>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</h1>
-<p style="color: red" id="result"></p>
+<span id="displaySpan">5</span>
+<button onclick="changeValue()">Thay đổi giá trị</button>
 <script>
-    let hienthi = document.getElementById("result");
-        let number1 = 0;
-        let number2 = 1;
-        let numberContinue;
-        count =0;
-            while (count=0) {
-                numberContinue =  number1 + number2;
-                number1 = number2 ;
-                number2 = numberContinue;
-                if (numberContinue%5 == 0) {
-                    hienthi.innerHTML = numberContinue;
-                    count++;
-                }
+    const displaySpan = document.getElementById("displaySpan");
+    const observer = new MutationObserver(function(mutationsList, observer) {
+        for (const mutation of mutationsList) {
+            if (mutation.type === "childList" && mutation.target === displaySpan) {
+                console.log("Giá trị của thẻ <span> đã bị thay đổi:", displaySpan.textContent);
             }
+        }
+    });
+    // Định cấu hình để giám sát các thay đổi trong nội dung của thẻ <span>
+    const config = { childList: true };
+    // Bắt đầu giám sát sự thay đổi của thẻ <span>
+    observer.observe(displaySpan, config);
+    function changeValue() {
+        let a = +displaySpan.innerHTML;
+        a++;
+        displaySpan.innerHTML = a;
+    }
 </script>
 </body>
 </html>

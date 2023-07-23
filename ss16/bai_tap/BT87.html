@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp miêu tả temperature</title>
+</head>
+<body>
+<p>Xây dựng lớp miêu tả Temperature</p>
+<hr>
+<input id="myvalue" type="number" placeholder="C >273" oninput="checkValue()">
+<button type="button" onclick="convertToK()">Convert to K</button>
+<button type="button" onclick="convertToF()">Convert to F</button>
+<br>
+<p id="result" style="color: red">Result: </p>
+<script>
+    function Temperature(temperature) {
+        let celsius = temperature;
+        this.convertToKelvin = function () {
+            return (celsius-273).toFixed(2);
+        }
+        this.convertToFahrenheit = function () {
+            return (celsius*1.8 +32).toFixed(2);
+        }
+    }
+    function checkValue() {
+        let valueInput = +document.getElementById("myvalue").value;
+        if (valueInput<=-273) {
+            document.getElementById("result").innerHTML = "please enter a number greater than 273";
+        } else {
+            document.getElementById("result").innerHTML = "";
+        }
+    }
+    function convertToK() {
+        let valueInput = +document.getElementById("myvalue").value;
+        let celsiusInput = new Temperature(valueInput);
+        document.getElementById("result").innerHTML ="Result: "+ celsiusInput.convertToKelvin()+` <sup>o</sup>K`;
+    }
+    function convertToF() {
+        let valueInput = +document.getElementById("myvalue").value;
+        let celsiusInput = new Temperature(valueInput);
+        document.getElementById("result").innerHTML = "Result: "+ celsiusInput.convertToFahrenheit()+` <sup>o</sup>F`;
+    }
+
+</script>
+</body>
+</html>

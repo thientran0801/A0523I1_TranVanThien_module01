@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+<p>Xây dựng chương trình sử dụng đệ quy để kiểm tra một từ có phải là từ đối xứng không. Phương thức trả về true nếu chuỗi truyền vào là chuỗi đối xứng. Còn lại trả về false.</p>
+<hr>
+<label for="arr_input">Nhập chuỗi: </label><br>
+<input type="text" id="arr_input" oninput="checkFunction()"> <br>
+<br>
+<P id="result" style="color: red;">Kết quả check: </P>
+<script>
+    function isPalindrome (array) {
+        for (let i=0; i< (Math.floor(array.length/2)); i++) {
+            if (array[i] != array[array.length-1-i]) {
+                return "Từ không đối xứng"
+            }else return "Từ đối xứng"
+        }
+    }
+    let KQ = document.getElementById("result");
+    function checkFunction() {
+        let stringInput = document.getElementById("arr_input").value;
+        if (stringInput == "") {
+            KQ.innerHTML = "Kết quả check: ";
+            return
+        }
+        let arr = stringInput.split("");
+        KQ.innerHTML ="Kết quả: " +isPalindrome(arr);
+    }
+    </script>
+</body>
+</html>

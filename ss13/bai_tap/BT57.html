@@ -9,21 +9,21 @@
 <hr>
 <p style="color: red" id="ketqua"></p>
 <script>
-    let Arr = [];
+    let arr = [];
     for (let i=0; i<10; i++) {
-        Arr.push(Math.round(Math.random()*(30-0)));
+        arr.push(Math.round(Math.random()*(30-0)));
     }
-    console.log(Arr);
-    let numberMax = Arr[0];
-    let sum = Arr[0];
-    for (let j=1; j<Arr.length; j++) {
-        if (Arr[j] > numberMax) {
-            numberMax = Arr[j];
+    console.log(arr);
+    let numberMax = arr[0];
+    let sum = arr[0];
+    for (let j=1; j<arr.length; j++) {
+        if (arr[j] > numberMax) {
+            numberMax = arr[j];
         }
-        sum += Arr[j];
+        sum += arr[j];
     }
-    let average = sum/(Arr.length);
-    document.getElementById("ketqua").innerHTML = `Chuỗi ${Arr.join(",  ")} có ${numberMax} là số nguyên lớn nhất và có giá trị trung bình của các phân tử là ${average}`;
+    let average = sum/(arr.length);
+    document.getElementById("ketqua").innerHTML = `Chuỗi ${arr.join(",  ")} có ${numberMax} là số nguyên lớn nhất và có giá trị trung bình của các phân tử là ${average}`;
 </script>
 </body>
 </html>

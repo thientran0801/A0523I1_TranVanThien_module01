@@ -8,18 +8,18 @@
 <p>Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.</p>
 <p style="color: red" id="ketqua"></p>
 <script>
-    let Arr = [];
-    let ketqua = [];
+    let arr = [];
+    let ketQua = [];
     for (let i=0; i<10; i++) {
-        Arr.push(Math.round(Math.random()*(30-0)));
+        arr.push(Math.round(Math.random()*(30-0)));
     }
-    console.log(Arr);
-    for (let j=0; j<Arr.length; j++) {
-        if (Arr[j] > 10) {
-            ketqua.push(Arr[j])
+    console.log(arr);
+    for (let j=0; j<arr.length; j++) {
+        if (arr[j] > 10) {
+            ketQua.push(arr[j])
         }
     }
-    document.getElementById("ketqua").innerHTML = `Chuỗi ${Arr.toString()} có ${ketqua.length} số nguyên lớn hơn 10 là: ${ketqua}`
+    document.getElementById("ketqua").innerHTML = `Chuỗi ${arr.toString()} có ${ketQua.length} số nguyên lớn hơn 10 là: ${ketQua}`
 </script>
 </body>
 </html></title>

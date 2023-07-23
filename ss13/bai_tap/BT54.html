@@ -14,13 +14,13 @@
 </head>
 <body>
 <h4>Từ điển: Anh - Việt</h4>
-<table border="1" align="center" cellspacing="0" style="border-color: red">
+<table border="1" align="center" cellspacing="0" style="border-color: red; text-align: center">
     <tr>
         <th>Nhập từ bạn buốn tra</th>
         <th>Kết quả</th>
     </tr>
     <tr>
-        <td><input type="text" id="text_search" style="border: none" placeholder="Nhập từ cần tra"></td>
+        <td><input type="text" id="text_search" style="outline: none; border: none; text-align: center" placeholder="Nhập từ cần tra"></td>
         <td id="result"></td>
     </tr>
 </table>
@@ -38,7 +38,7 @@
                 ketQua.innerHTML = vietnameselist[i];
                 return;
             } else {
-                ketQua.textContent = "";
+                ketQua.textContent = "không tìm thấy";
             }
         }
     }

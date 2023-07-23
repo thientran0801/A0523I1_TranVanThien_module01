@@ -64,6 +64,9 @@
             this.screenOn = true;
         }
         charge() {
+            if (!this.screenOn) {
+                return;
+            }
             let pinValue = parseInt(this.pin.innerHTML);
             if(pinValue ==100) {
                 return;
@@ -75,32 +78,45 @@
         }
         onOfPhone() {
             if (this.screenOn) {
-                this.screen.value = "";
                 this.screen.style.backgroundColor = "black";
                 this.pin.style.color = "silver"
                 this.screenOn = false;
+                this.screen.value = "";
             } else {
                 this.screen.style.backgroundColor = "";
                 this.pin.style.color = ""
                 this.screenOn = true;
+                this.screen.value = "";
             }
         }
         setMessage(newmess) {
             this.screen.value = newmess;
         }
         getInbox(newMessage) {
+            if (!this.screenOn) {
+                return;
+            }
             this.inbox.unshift(newMessage);
             this.pin.innerHTML -=1;
         }
         showInbox() {
+            if (!this.screenOn) {
+                return;
+            }
             this.screen.value = this.inbox.join(".\n");
             this.pin.innerHTML -=1;
         }
         showSent() {
+            if (!this.screenOn) {
+                return;
+            }
             this.screen.value = this.sent.join(".\n");
             this.pin.innerHTML -=1;
         }
         sendmessage (tophone) {
+            if (!this.screenOn) {
+                return;
+            }
             let message = this.screen.value;
             tophone.setMessage(message);
             this.sent.unshift(message);

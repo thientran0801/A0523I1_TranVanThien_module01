@@ -12,14 +12,17 @@
 <p id="result">Kết quả check: </p>
 <script>
     function checknumber(number) {
-        if (number>0 && Number.isInteger(number))
-            return `${number} là số nguyên dương.`
-        else
-            return `${number} không phải là số nguyên dương.`
+        if (Number.isInteger(number)){
+            if  (number>0) {
+                return `${number} là số nguyên dương.`
+            }else return `${number} là số nguyên âm`
+        }else return `${number} không phải là số nguyên.`
     }
     function checkFunction() {
         let number_input = +document.getElementById("number").value;
         document.getElementById("result").innerHTML = checknumber(number_input);
+        if (number_input == "")
+            document.getElementById("result").innerHTML = "Kết quả check: ";
     }
 </script>
 </body>

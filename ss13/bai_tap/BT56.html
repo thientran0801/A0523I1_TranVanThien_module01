@@ -8,19 +8,19 @@
 <p>Hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.</p>
 <p style="color: red" id="ketqua"></p>
 <script>
-    let Arr = [];
+    let arr = [];
     for (let i=0; i<10; i++) {
-        Arr.push(Math.round(Math.random()*(30-0)));
+        arr.push(Math.round(Math.random()*(30-0)));
     }
-    console.log(Arr);
-    let numberMax = Arr[0];
-    for (let j=1; j<Arr.length; j++) {
-        if (Arr[j] > numberMax) {
-            numberMax = Arr[j];
+    console.log(arr);
+    let numberMax = arr[0];
+    for (let j=1; j<arr.length; j++) {
+        if (arr[j] > numberMax) {
+            numberMax = arr[j];
         }
     }
-    let index = Arr.indexOf(numberMax)
-    document.getElementById("ketqua").innerHTML = `Chuỗi ${Arr.toString()} có ${numberMax} là số nguyên lớn nhất và có chỉ số trong chuỗi là ${index}`;
+    let index = arr.indexOf(numberMax)
+    document.getElementById("ketqua").innerHTML = `Chuỗi ${arr.toString()} có ${numberMax} là số nguyên lớn nhất và có chỉ số trong chuỗi là ${index}`;
 </script>
 </body>
 </html>
