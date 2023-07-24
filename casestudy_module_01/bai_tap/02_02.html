@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vẽ tam giác vuông cân có chiều cao h nhập vào.</title>
+</head>
+<body>
+<p>Vẽ tam giác cân đặc có chiều cao h do người dùng nhập vào. Ví dụ: h = 5</p>
+<hr>
+<label for="chieucao">Nhập chiều cao hình tâm giác cần vẽ: </label><br>
+<input type="number" id="chieucao" placeholder="Nhập h...">
+<p id="result"></p>
+<button type="button" onclick="drawFunction()">Draw</button>
+<hr>
+<pre id="drawid"></pre>
+<script>
+    let drawLocation = document.getElementById("drawid");
+    function drawFunction() {
+        let height = +document.getElementById("chieucao").value;
+        if (isNaN(height) || height <0 || height == "") {
+            document.getElementById("result").innerHTML = "Hãy nhập một số nguyên dương lớn hơn 0";
+            return;
+        }
+        let sao = "<strong>*</strong>";
+        let space = "<strong style='color: white'>*</strong>";
+
+
+        for (let i=0; i<height; i++) {
+
+            for (j=1; j<height-i; j++) {
+                drawLocation.innerHTML +=space;
+            }
+            for (j=0; j<=2*i; j++) {
+                drawLocation.innerHTML +=sao;
+            }
+            drawLocation.innerHTML += "<p></p>";
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -2,29 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bắt sự kiện thay đổi giá trị của thẻ</title>
+    <title>Game đơn giản-Di chuyển đối tượng</title>
 </head>
 <body>
-<span id="displaySpan">5</span>
-<button onclick="changeValue()">Thay đổi giá trị</button>
+<p>game đơn giản thay đổi đối tượng</p>
+<hr>
+<div id="game"></div>
 <script>
-    const displaySpan = document.getElementById("displaySpan");
-    const observer = new MutationObserver(function(mutationsList, observer) {
-        for (const mutation of mutationsList) {
-            if (mutation.type === "childList" && mutation.target === displaySpan) {
-                console.log("Giá trị của thẻ <span> đã bị thay đổi:", displaySpan.textContent);
-            }
+    function Hero(image, top, left, size, speed){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+        this.speed = speed;
+
+        this.getHeroElement = function(){
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
         }
-    });
-    // Định cấu hình để giám sát các thay đổi trong nội dung của thẻ <span>
-    const config = { childList: true };
-    // Bắt đầu giám sát sự thay đổi của thẻ <span>
-    observer.observe(displaySpan, config);
-    function changeValue() {
-        let a = +displaySpan.innerHTML;
-        a++;
-        displaySpan.innerHTML = a;
+
+        this.moveLeft = function(){
+            this.left -= this.speed;
+        }
+
+        this.moveRight = function(){
+            this.left += this.speed;
+        }
+
+        this.moveDown = function () {
+            this.top += this.speed;
+        }
+
+        this.moveUp = function(){
+            this.top -= this.speed;
+        }
+
     }
+
+    var hero = new Hero('https://img3.thuthuatphanmem.vn/uploads/2019/10/10/anh-doremon-dep-cuoi-choi-than_033146222.png', 50, 30, 100, 50);
+    function start(){
+        if(hero.left < window.innerWidth - hero.size){
+            hero.moveRight();
+        }else if (hero.top < window.innerHeight - 2*hero.size) {
+            hero.moveDown();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 100);
+    }
+    start();
 </script>
 </body>
 </html>
