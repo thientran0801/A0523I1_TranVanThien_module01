@@ -2,18 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Game đơn giản-Di chuyển đối tượng</title>
 </head>
 <body>
-<textarea id="123"></textarea>
-<p id="abc"></p>
-<br>
-<button onclick="qevwvw()">vieets</button>
+<div id="game"></div>
 <script>
-    function qevwvw() {
-        let a = document.getElementById("123").innerText;
-        document.getElementById("abc").innerHTML = a;
+    function Hero(image, top, left, size, speed){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+        this.speed = speed;
+
+        this.getHeroElement = function(){
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+        this.moveLeft = function(){
+            this.left -= this.speed;
+        }
+
+        this.moveRight = function(){
+            this.left += this.speed;
+        }
+
+        this.moveDown = function () {
+            this.top += this.speed;
+        }
+
+        this.moveUp = function(){
+            this.top -= this.speed;
+        }
+
     }
+
+    var hero = new Hero('https://img3.thuthuatphanmem.vn/uploads/2019/10/10/anh-doremon-dep-cuoi-choi-than_033146222.png', 0, 0, 100, 50);
+
+    function start() {
+        if (hero.left < window.innerWidth -hero.size && hero.top < hero.size/2) {
+            hero.moveRight();
+        }else if (hero.left >0  && hero.top > window.innerHeight-hero.size) {
+            hero.moveLeft();
+        }else if (hero.top < window.innerHeight-hero.size && hero.left > window.innerWidth/2) {
+            hero.moveDown();
+        }else if (hero.top > 0 && hero.left < window.innerWidth/2) {
+            hero.moveUp();
+        }
+        document.getElementById("game").innerHTML = hero.getHeroElement();
+        setTimeout(start, 100);
+    }
+    start();
 </script>
 </body>
 </html>
