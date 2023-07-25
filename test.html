@@ -2,56 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game đơn giản-Di chuyển đối tượng</title>
+    <title>Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
 </head>
 <body>
-<p>game đơn giản thay đổi đối tượng</p>
-<hr>
-<div id="game"></div>
 <script>
-    function Hero(image, top, left, size, speed){
-        this.image = image;
-        this.top = top;
-        this.left = left;
-        this.size = size;
-        this.speed = speed;
-
-        this.getHeroElement = function(){
-            return '<img width="'+ this.size + '"' +
-                ' height="'+ this.size + '"' +
-                ' src="' + this.image +'"' +
-                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
         }
 
-        this.moveLeft = function(){
-            this.left -= this.speed;
+        decrease() {
+            let weightNext = parseInt(this.weight)-1;
+            this.weight = weightNext;
         }
 
-        this.moveRight = function(){
-            this.left += this.speed;
+        isEmpty() {
+            if(this.weight>0) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
-        this.moveDown = function () {
-            this.top += this.speed;
+        getWeight() {
+            return this.weight;
         }
-
-        this.moveUp = function(){
-            this.top -= this.speed;
-        }
-
     }
 
-    var hero = new Hero('https://img3.thuthuatphanmem.vn/uploads/2019/10/10/anh-doremon-dep-cuoi-choi-than_033146222.png', 50, 30, 100, 50);
-    function start(){
-        if(hero.left < window.innerWidth - hero.size){
-            hero.moveRight();
-        }else if (hero.top < window.innerHeight - 2*hero.size) {
-            hero.moveDown();
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
         }
-        document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start, 100);
+
+        isMale() {
+            if(this.gender==true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        setGender(boolean) {
+            this.gender = boolean;
+        }
+
+        checkAplle(Apple) {
+            if(!Apple.isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        eat(Apple) {
+            Apple.decrease();
+            this.weight++;
+        }
+
+        say(String) {
+            console.log(String);
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(String) {
+            this.name = String;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(int) {
+            this.weight = int;
+        }
     }
-    start();
+    apple = new Apple(10);
+    adam = new Human("Adam", true, 60);
+    eva = new Human("Eva", false, 40);
+
+    conversation1 = ["Hello Eva", "How are you?", "You are beautiful", "Apple is delicious, right?", "Apple is almost gone, will you eat more?"];
+    conversation2 = ["Hi Adam", "Well, I'm fine", "Thank you", "That's right", "Yes, I will"];
+
+    function startConversation(i) {
+        if(i<conversation1.length) {
+            adam.eat(apple);
+            setTimeout(function() {
+                adam.say(conversation1[i]);
+                setTimeout(function() {
+                    eva.eat(apple);
+                    setTimeout(function() {
+                        eva.say(conversation2[i]);
+                        setTimeout(function () {
+                            startConversation(i+1);
+                        },1000);
+                    },1000);
+                },1000);
+            },1000);
+        }
+    }
+    startConversation(0);
 </script>
 </body>
 </html>

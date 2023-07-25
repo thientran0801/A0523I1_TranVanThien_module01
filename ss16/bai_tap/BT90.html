@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phát triển ứng dụng mô tả cuộc trò chuyện giữa Adam và Eva </title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+        decrease () {
+            this.weight--;
+        }
+        isEmpty() {
+            if (this.weight == 0) {
+                return true;
+            }else {
+                return false;
+            }
+        }
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        isMale() {
+            if(this.gender) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        setGender(newGender) {
+            this.gender = newGender;
+        }
+        checkApple(apple) {
+            apple.this.isEmpty();
+        }
+        eatApple(apple) {
+            if (apple.isEmpty()) {
+                return;
+            }
+            apple.decrease();
+            this.weight++;
+        }
+        say(string) {
+            console.log(string);
+        }
+        getName() {
+            return this.name;
+        }
+        setName(newName) {
+            this.name = newName;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        setWeight(newWeight) {
+            this.weight = newWeight;
+        }
+
+    }
+    let apple = new Apple();
+    let adam = new Human("Adam", true, 70);
+    let eva = new Human("Eva", true, 50);
+
+    let adamSpeech = ["Hello...", `my name is ${adam.getName()}`, "có chứ 6", "ngon lắm 8", "ok", "goodbye 10"];
+    let evaSpeech = ["Hi...", `my name is ${eva.getName()}`, "bạn ăn táo không 5", "ngon không 7", "mình phải đi rồi 9"];
+
+    let i=0;
+    function adamSay() {
+        adam.eatApple(apple);
+        adam.say(adamSpeech[i]);
+    }
+    function adamSay() {
+        adam.eatApple(apple);
+        adam.say(adamSpeech[i]);
+    }
+    function communication() {
+        if (apple.isEmpty()) {
+            console.log("...");
+            console.log("the end...");
+            return;
+        }else {
+            eva.eatApple(apple);
+            eva.say(evaSpeech[i]);
+            setTimeout(adamSay,1000);
+        }
+        i++;
+        setTimeout(communication, 1000);
+    }
+    communication();
+</script>
+</body>
+</html>
